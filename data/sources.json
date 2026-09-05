@@ -1,0 +1,42 @@
+{
+  "project": "vintage-archive",
+  "updated": "2026-09-05",
+  "sources": [
+    {
+      "type": "naver_blog",
+      "name": "bnr34_jeff post 224359162983",
+      "url": "https://m.blog.naver.com/bnr34_jeff/224359162983",
+      "status": "queued_for_extraction"
+    },
+    {
+      "type": "naver_blog",
+      "name": "bnr34_jeff post 224354792929",
+      "url": "https://m.blog.naver.com/bnr34_jeff/224354792929",
+      "status": "queued_for_extraction"
+    },
+    {
+      "type": "instagram",
+      "name": "bnr34_korea",
+      "url": "https://www.instagram.com/bnr34_korea",
+      "status": "source_registered"
+    },
+    {
+      "type": "hellomarket",
+      "name": "allcollecter",
+      "url": "https://www.hellomarket.com/s/allcollecter",
+      "status": "source_registered"
+    },
+    {
+      "type": "fruitsfamily",
+      "name": "bnr34korea / @bnr34jeff",
+      "url": "https://fruitsfamily.com/seller/m91p/bnr34jeff",
+      "status": "indexed"
+    },
+    {
+      "type": "grailed",
+      "name": "shared Grailed source",
+      "url": "https://grailed.onelink.me/1LT8/vpbu9sa0",
+      "status": "source_registered"
+    }
+  ]
+}
