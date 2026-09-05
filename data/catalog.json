@@ -1,0 +1,22 @@
+{
+  "settings": {
+    "site_title": "VINTAGE ARCHIVE",
+    "show_prices_by_default": false,
+    "show_status_badges": true,
+    "notes": "Edit each item's price_krw, show_price and status without touching index.html. status can be blank, for_sale, reserved, sold, archive."
+  },
+  "items": [
+    {"id":"AF1-0001","category":"shoes","source":"bunjang","title":"95년 나이키 에어포스1 하이 CVS 260 신품","year":1995,"size":"260","image":"https://media.bunjang.co.kr/product/399297426_1_1786790665_w360.jpg","source_url":"https://m.bunjang.co.kr/products/399297426","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"AF1-0002","category":"shoes","source":"bunjang","title":"1995 나이키 에어포스1 하이 NYC 신품 265","year":1995,"size":"265","image":"https://media.bunjang.co.kr/product/384415927_1_1769871000_w360.jpg","source_url":"https://m.bunjang.co.kr/products/384415927","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"AF1-0003","category":"shoes","source":"bunjang","title":"95년 나이키 에어포스 1 미드 허니버스 265 신품","year":1995,"size":"265","image":"https://media.bunjang.co.kr/product/421382789_1_1785465472_w360.jpg","source_url":"https://m.bunjang.co.kr/products/421382789","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"AF1-0004","category":"shoes","source":"bunjang","title":"나이키 에어포스 1 캔버스 SC 레드 신품 275","year":null,"size":"275","image":"https://media.bunjang.co.kr/product/428633583_1_1788562912_w360.jpg","source_url":"https://m.bunjang.co.kr/products/428633583","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"AF1-0005","category":"shoes","source":"bunjang","title":"나이키 에어포스1 하이 캔버스 265","year":null,"size":"265","image":"https://media.bunjang.co.kr/product/393525304_1_1772942427_w360.jpg","source_url":"https://m.bunjang.co.kr/products/393525304","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"AF1-0006","category":"shoes","source":"bunjang","title":"1997 Nike Air Force 1 Mid SC Jewel","year":1997,"size":"","image":"","source_url":"https://globalbunjang.com/product/418782333","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"AF1-0007","category":"shoes","source":"bunjang","title":"2016 나이키 에어포스1 하이 CVS 신품 260","year":2016,"size":"260","image":"https://media.bunjang.co.kr/product/323406156_1_1778255504_w360.jpg","source_url":"https://m.bunjang.co.kr/products/323406156","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"TNF-0001","category":"outer","source":"bunjang","title":"노스페이스 서밋 시리즈 히말라야 1 라지 12F/W","year":2012,"size":"L","image":"https://media.bunjang.co.kr/product/426092703_1_1788241282_w360.jpg","source_url":"https://m.bunjang.co.kr/products/426092703","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"TNF-0002","category":"outer","source":"bunjang","title":"The North Face Baltoro Red / Black XXL","year":null,"size":"XXL","image":"https://media.bunjang.co.kr/product/353662735_1_1788237067_w360.jpg","source_url":"https://m.bunjang.co.kr/products/353662735","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"DIOR-0001","category":"outer","source":"bunjang","title":"Dior Homme Coated Black Denim Jacket 06","year":2006,"size":"","image":"","source_url":"https://globalbunjang.com/product/358396811","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"SL-0001","category":"top","source":"bunjang","title":"Saint Laurent cardigan 48","year":null,"size":"48","image":"https://media.bunjang.co.kr/product/358394060_1_1777326714_w360.jpg","source_url":"https://m.bunjang.co.kr/products/358394060","price_krw":null,"show_price":false,"status":"","description":""},
+    {"id":"FF-0001","category":"shoes","source":"fruitsfamily","title":"95 나이키 Air Force 1 허니버스 265","year":1995,"size":"265","image":"","source_url":"https://fruitsfamily.com/product/49pno/95-%EB%82%98%EC%9D%B4%ED%82%A4-air-force-1-%ED%97%88%EB%8B%88%EB%B2%84%EC%8A%A4-265","price_krw":650000,"show_price":true,"status":"","description":"후루츠패밀리 테스트 1건"}
+  ]
+}
