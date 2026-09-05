@@ -1,0 +1,25 @@
+{
+  "categories": [
+    {
+      "id": "nike-air-force-1",
+      "title": "Nike Air Force 1",
+      "focus": ["OG", "CVS", "SC", "Jewel", "1991-2001"],
+      "data_sources": ["data/bunjang.json"],
+      "status": "active"
+    },
+    {
+      "id": "the-north-face",
+      "title": "The North Face",
+      "focus": ["Baltoro", "Himalayan", "Summit Series"],
+      "data_sources": ["data/bunjang.json"],
+      "status": "active"
+    },
+    {
+      "id": "designer",
+      "title": "Designer Archive",
+      "focus": ["Dior Homme", "Saint Laurent", "Armani Jeans"],
+      "data_sources": ["data/bunjang.json"],
+      "status": "active"
+    }
+  ]
+}
