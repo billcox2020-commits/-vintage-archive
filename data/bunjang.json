@@ -2,25 +2,25 @@
   "source": "Bunjang / 번개장터",
   "shop_name": "올콜렉터",
   "collected_at": "2026-09-05",
-  "status": "initial verified extraction",
+  "status": "initial verified extraction with public image URLs",
   "records": [
-    {"category":"nike_air_force_1","title":"95년 나이키 에어포스1 하이 CVS 260 신품","year":1995,"model":"Air Force 1 High CVS","size_mm":260,"condition":"미사용","color":"보/은","country":"China","source_url":"https://m.bunjang.co.kr/products/399297426","verified_from_public_page":true},
-    {"category":"nike_air_force_1","title":"1995 나이키 에어포스1 하이 NYC 신품 265","year":1995,"model":"Air Force 1 High NYC","size_mm":265,"source_url":"https://m.bunjang.co.kr/products/384415927","verified_from_public_page":true},
-    {"category":"nike_air_force_1","title":"95년 나이키 에어포스 1 미드 허니버스 265 신품","year":1995,"model":"Air Force 1 Mid","size_mm":265,"source_url":"https://m.bunjang.co.kr/products/421382789","verified_from_public_page":true},
-    {"category":"nike_air_force_1","title":"나이키 에어포스 1 캔버스 SC 레드 신품 275","model":"Air Force 1 Canvas SC","size_mm":275,"condition":"신품","source_url":"https://m.bunjang.co.kr/products/428633583","verified_from_public_page":true},
-    {"category":"nike_air_force_1","title":"나이키 에어포스1 하이 캔버스 265","model":"Air Force 1 High Canvas","size_mm":265,"source_url":"https://m.bunjang.co.kr/products/393525304","verified_from_public_page":true,"related_shop_items_seen":["94년 에어포스1 CVS 검빨 로우 280"]},
-    {"category":"nike_air_force_1","title":"1997 Nike Air Force 1 Mid SC Jewelry","year":1997,"model":"Air Force 1 Mid SC Jewel","source_url":"https://globalbunjang.com/product/418782333","verified_from_public_page":true},
-    {"category":"nike_air_force_1","title":"2016 나이키 에어포스1 하이 CVS 신품 260","year":2016,"model":"Air Force 1 High CVS","size_mm":260,"condition":"신품","source_url":"https://m.bunjang.co.kr/products/323406156","verified_from_public_page":true,"related_shop_items_seen":["97년 나이키 에어포스 1 미드 주얼리 CL 애플그린"]},
-    {"category":"the_north_face","title":"노스페이스 서밋 시리즈 히말라야 1 라지 12F/W","year":2012,"model":"Summit Series Himalayan","size":"L","source_url":"https://m.bunjang.co.kr/products/426092703","verified_from_public_page":true},
-    {"category":"the_north_face","title":"The North Face Baltoro Red/Black XXL","model":"Baltoro","size":"XXL","source_url":"https://globalbunjang.com/product/353662735","verified_from_public_page":true},
-    {"category":"dior_homme","title":"Dior Homme Coated Black Denim Jacket 06","year":2006,"model":"Coated Black Denim Jacket","source_url":"https://globalbunjang.com/product/358396811","verified_from_public_page":true},
-    {"category":"saint_laurent","title":"Saint Laurent cardigan 48","size":"48","source_url":"https://globalbunjang.com/product/358394060","verified_from_public_page":true}
+    {"category":"nike_air_force_1","title":"95년 나이키 에어포스1 하이 CVS 260 신품","year":1995,"model":"Air Force 1 High CVS","size_mm":260,"condition":"미사용","color":"보/은","country":"China","source_url":"https://m.bunjang.co.kr/products/399297426","image_url":"https://media.bunjang.co.kr/product/399297426_1_1786790665_w360.jpg","verified_from_public_page":true,"image_verified":true},
+    {"category":"nike_air_force_1","title":"1995 나이키 에어포스1 하이 NYC 신품 265","year":1995,"model":"Air Force 1 High NYC","size_mm":265,"source_url":"https://m.bunjang.co.kr/products/384415927","image_url":"https://media.bunjang.co.kr/product/384415927_1_1769871000_w360.jpg","verified_from_public_page":true,"image_verified":true},
+    {"category":"nike_air_force_1","title":"95년 나이키 에어포스 1 미드 허니버스 265 신품","year":1995,"model":"Air Force 1 Mid","size_mm":265,"source_url":"https://m.bunjang.co.kr/products/421382789","image_url":"https://media.bunjang.co.kr/product/421382789_1_1785465472_w360.jpg","verified_from_public_page":true,"image_verified":true},
+    {"category":"nike_air_force_1","title":"나이키 에어포스 1 캔버스 SC 레드 신품 275","model":"Air Force 1 Canvas SC","size_mm":275,"condition":"신품","source_url":"https://m.bunjang.co.kr/products/428633583","image_url":"https://media.bunjang.co.kr/product/428633583_1_1788562912_w360.jpg","verified_from_public_page":true,"image_verified":true},
+    {"category":"nike_air_force_1","title":"나이키 에어포스1 하이 캔버스 265","model":"Air Force 1 High Canvas","size_mm":265,"source_url":"https://m.bunjang.co.kr/products/393525304","image_url":"https://media.bunjang.co.kr/product/393525304_1_1772942427_w360.jpg","verified_from_public_page":true,"image_verified":true,"related_shop_items_seen":["94년 에어포스1 CVS 검빨 로우 280"]},
+    {"category":"nike_air_force_1","title":"1997 Nike Air Force 1 Mid SC Jewelry","year":1997,"model":"Air Force 1 Mid SC Jewel","source_url":"https://globalbunjang.com/product/418782333","verified_from_public_page":true,"image_verified":false},
+    {"category":"nike_air_force_1","title":"2016 나이키 에어포스1 하이 CVS 신품 260","year":2016,"model":"Air Force 1 High CVS","size_mm":260,"condition":"신품","source_url":"https://m.bunjang.co.kr/products/323406156","image_url":"https://media.bunjang.co.kr/product/323406156_1_1778255504_w360.jpg","verified_from_public_page":true,"image_verified":true,"related_shop_items_seen":["97년 나이키 에어포스 1 미드 주얼리 CL 애플그린"]},
+    {"category":"the_north_face","title":"노스페이스 서밋 시리즈 히말라야 1 라지 12F/W","year":2012,"model":"Summit Series Himalayan","size":"L","source_url":"https://m.bunjang.co.kr/products/426092703","image_url":"https://media.bunjang.co.kr/product/426092703_1_1788241282_w360.jpg","verified_from_public_page":true,"image_verified":true},
+    {"category":"the_north_face","title":"The North Face Baltoro Red/Black XXL","model":"Baltoro","size":"XXL","source_url":"https://m.bunjang.co.kr/products/353662735","image_url":"https://media.bunjang.co.kr/product/353662735_1_1788237067_w360.jpg","verified_from_public_page":true,"image_verified":true},
+    {"category":"dior_homme","title":"Dior Homme Coated Black Denim Jacket 06","year":2006,"model":"Coated Black Denim Jacket","source_url":"https://globalbunjang.com/product/358396811","verified_from_public_page":true,"image_verified":false},
+    {"category":"saint_laurent","title":"Saint Laurent cardigan 48","size":"48","source_url":"https://m.bunjang.co.kr/products/358394060","image_url":"https://media.bunjang.co.kr/product/358394060_1_1777326714_w360.jpg","verified_from_public_page":true,"image_verified":true}
   ],
   "shop_signals": {
     "public_shop_name":"올콜렉터",
     "shop_age_text":"오픈일 9년 전",
-    "product_count_seen":456,
-    "other_items_seen_in_shop_modules":["02년 나이키 에어 포스1 미드 275 신품","96년 나이키 에어포스 1 하늘완창 275 신품","95년 나이키 에어포스1 CVS 로우 풋라커 별주","1995 나이키 에어포스 1 로우 양군 CVS 250","96 나이키 에어 포스 1 미드 하늘완창 260 신품","노스페이스 히말라야1 XL 미품 2012년","노스페이스 써밋 시리즈 구스 다운 패딩 푸모리 L","94년 에어포스1 CVS 검빨 로우 280"]
+    "product_count_seen":458,
+    "other_items_seen_in_shop_modules":["02년 나이키 에어 포스1 미드 275 신품","96년 나이키 에어포스 1 하늘완창 275 신품","95년 나이키 에어포스1 cvs 로우 풋라커 별주","1995 나이키 에어포스 1 로우 양군 CVS 250","96 나이키 에어 포스 1 미드 하늘완창 260 신품","노스페이스 히말라야1 XL 미품 2012년","노스페이스 써밋 시리즈 구스 다운 패딩 푸모리 L","94년 에어포스1 CVS 검빨 로우 280"]
   },
-  "next_steps":["crawl additional public product pages from the same shop","separate current listings from historical/sold traces","deduplicate cross-posts against blog, FruitsFamily, HelloMarket and Grailed","attach photos only where source reuse is permitted or user-provided originals are available"]
+  "next_steps":["resolve remaining two Bunjang sample images","extract and verify 3 blog records","extract and verify 3 FruitsFamily records","extract 3 public Instagram media/reels records or replace with public posts if reels are unavailable","render mixed-source 20-record test on homepage"]
 }
