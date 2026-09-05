@@ -1,0 +1,20 @@
+{
+  "purpose":"Initial category population test using previously collected public records",
+  "categories": {
+    "top": [
+      {"title":"Saint Laurent cardigan 48","brand":"Saint Laurent","type":"cardigan","size":"48","source":"Bunjang","source_url":"https://globalbunjang.com/product/358394060","verified_from_public_page":true}
+    ],
+    "outer": [
+      {"title":"노스페이스 서밋 시리즈 히말라야 1 라지 12F/W","brand":"The North Face","type":"down outerwear","year":2012,"size":"L","source":"Bunjang","source_url":"https://m.bunjang.co.kr/products/426092703","verified_from_public_page":true}
+    ],
+    "bottom": [
+      {"title":"Saint Laurent Black Denim Biker Jeans Size 46","brand":"Saint Laurent","type":"denim","size":"46","source":"Bunjang","source_url":"https://globalbunjang.com/product/358399128","verified_from_public_page":true}
+    ],
+    "shoes": [
+      {"title":"95년 나이키 에어포스1 하이 CVS 260 신품","brand":"Nike","type":"Air Force 1 High CVS","year":1995,"size_mm":260,"source":"Bunjang","source_url":"https://m.bunjang.co.kr/products/399297426","verified_from_public_page":true}
+    ],
+    "etc": [
+      {"title":"Armani Jeans denim cap","brand":"Armani Jeans","type":"cap","source":"Bunjang shop review trace","provenance_note":"A public review on the 올콜렉터 shop referenced an Armani Jeans denim cap; retained as a trace rather than complete item metadata.","verification_level":"trace_only"}
+    ]
+  }
+}
