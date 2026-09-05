@@ -1,0 +1,51 @@
+{
+  "source": "FruitsFamily / 후루츠패밀리",
+  "seller": "bnr34korea / @bnr34jeff",
+  "collected_at": "2026-09-05",
+  "status": "verified public-page extraction",
+  "records": [
+    {
+      "category": "nike_air_force_1",
+      "title": "95 나이키 Air Force 1 허니버스 265",
+      "year": 1995,
+      "brand": "Nike",
+      "size_mm": 265,
+      "description": "265 박스 별미세눌린 nds 45 및창 마지막사진 신품 65",
+      "price_krw": 650000,
+      "source_url": "https://fruitsfamily.com/product/49pno/95-%EB%82%98%EC%9D%B4%ED%82%A4-air-force-1-%ED%97%88%EB%8B%88%EB%B2%84%EC%8A%A4-265",
+      "seller_verified": true,
+      "verified_from_public_page": true,
+      "page_has_product_image": true,
+      "image_url_verified": false
+    },
+    {
+      "category": "nike_air_force_1",
+      "title": "nike air force 1 low 265",
+      "year": 1994,
+      "brand": "Nike",
+      "size_mm": 265,
+      "condition": "신품",
+      "description": "265신품 박스포 1994년 남/흰",
+      "price_krw": 600000,
+      "source_url": "https://fruitsfamily.com/product/4iq0u/nike-air-force-1-low-265",
+      "seller_verified": true,
+      "verified_from_public_page": true,
+      "page_has_product_image": true,
+      "image_url_verified": false
+    },
+    {
+      "category": "nike_air_force_1",
+      "title": "[255] Nike air Force 1 Mid Jewel sc",
+      "year": 1998,
+      "brand": "Nike",
+      "size_mm": 255,
+      "description": "98년 Navy/Orange nyc곤주 뽈록이 사이즈255 단품 상태 마품급",
+      "price_krw": 149000,
+      "source_url": "https://fruitsfamily.com/product/460pb/255-nike-air-force-1-mid-jewel-sc",
+      "seller_verified": true,
+      "verified_from_public_page": true,
+      "page_has_product_image": true,
+      "image_url_verified": false
+    }
+  ]
+}
