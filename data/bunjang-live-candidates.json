@@ -1,0 +1,130 @@
+{
+  "source": "Bunjang / 올콜렉터",
+  "collected_at": "2026-09-13",
+  "purpose": "현재 판매글 후보를 먼저 텍스트 중심으로 수집하고 브랜드/품목을 분류한 뒤, 판매상태와 중복을 재검증하여 catalog.json에 합친다.",
+  "rules": {
+    "include": "public product pages from the 올콜렉터 shop",
+    "exclude_before_publish": ["sold", "reserved", "duplicate/relisted same item"],
+    "taxonomy": {
+      "brands": ["NIKE", "JORDAN", "THE NORTH FACE", "DIOR HOMME", "SAINT LAURENT", "POLO RALPH LAUREN", "POLO SPORT", "ARMANI", "SUPREME", "OTHER"],
+      "categories": ["shoes", "outer", "top", "bottom", "etc"]
+    }
+  },
+  "records": [
+    {
+      "product_id": "327467639",
+      "title": "나이키 Vandal hi cvs 02년 신품",
+      "brand": "NIKE",
+      "category": "shoes",
+      "year": 2002,
+      "size": "270",
+      "condition": "새 상품 (미사용)",
+      "price_krw": 189050,
+      "source_url": "https://m.bunjang.co.kr/products/327467639",
+      "status_check": "public page crawled 2026-09-13; sold/reserved text not detected",
+      "publish_ready": false
+    },
+    {
+      "product_id": "360660325",
+      "title": "나이키 에어포스1 cvs 양군 255",
+      "brand": "NIKE",
+      "category": "shoes",
+      "year": null,
+      "size": "255",
+      "condition": "사용감 많음",
+      "price_krw": 180000,
+      "source_url": "https://m.bunjang.co.kr/products/360660325",
+      "status_check": "public page crawled 2026-09-09; sold/reserved text not detected",
+      "publish_ready": false
+    },
+    {
+      "product_id": "393486855",
+      "title": "나이키 에어포스 1 cvs 양군 245",
+      "brand": "NIKE",
+      "category": "shoes",
+      "year": 1995,
+      "size": "245",
+      "condition": "사용감 적음",
+      "price_krw": null,
+      "country": "China",
+      "description_excerpt": "Air Force 1 Low CVS, Canyon Gold, seller condition grade 8.5/10.",
+      "source_url": "https://m.bunjang.co.kr/products/393486855",
+      "status_check": "public page crawled 2026-09-10; final sale-status verification pending",
+      "publish_ready": false
+    },
+    {
+      "product_id": "413567021",
+      "title": "생로랑 무파 데님 13-14 청바지 32사이즈",
+      "brand": "SAINT LAURENT",
+      "category": "bottom",
+      "year": 2013,
+      "size": "32",
+      "price_krw": null,
+      "source_url": "https://m.bunjang.co.kr/products/413567021",
+      "status_check": "public page crawled 2026-09-08; final sale-status verification pending",
+      "publish_ready": false
+    },
+    {
+      "product_id": "359417753",
+      "title": "16f/w 생로랑 모터사이클 와이어링부츠 박스포함",
+      "brand": "SAINT LAURENT",
+      "category": "shoes",
+      "year": 2016,
+      "size": "",
+      "price_krw": null,
+      "source_url": "https://m.bunjang.co.kr/products/359417753",
+      "status_check": "public page crawled 2026-09-13; final sale-status verification pending",
+      "publish_ready": false
+    },
+    {
+      "product_id": "305966434",
+      "title": "노스페이스 발토르 발토로 800 레드 라지",
+      "brand": "THE NORTH FACE",
+      "category": "outer",
+      "year": null,
+      "size": "L",
+      "price_krw": null,
+      "source_url": "https://m.bunjang.co.kr/products/305966434",
+      "status_check": "public page crawled 2026-09-06; final sale-status verification pending",
+      "publish_ready": false
+    },
+    {
+      "product_id": "426092703",
+      "title": "노스페이스 서밋 시리즈 히말라야 1 라지 12f/w",
+      "brand": "THE NORTH FACE",
+      "category": "outer",
+      "year": 2012,
+      "size": "L",
+      "price_krw": null,
+      "source_url": "https://m.bunjang.co.kr/products/426092703",
+      "status_check": "public page crawled 2026-09-06; final sale-status verification pending",
+      "publish_ready": false
+    },
+    {
+      "product_id": "353662735",
+      "title": "노스페이스 발토르 빨/검 xxl 팝니다",
+      "brand": "THE NORTH FACE",
+      "category": "outer",
+      "year": null,
+      "size": "XXL",
+      "price_krw": null,
+      "source_url": "https://m.bunjang.co.kr/products/353662735",
+      "status_check": "public page crawled 2026-09-06; final sale-status verification pending",
+      "publish_ready": false
+    },
+    {
+      "product_id": "330282834",
+      "title": "나이키 91년 조던 점프맨 기념 캡 데드스탁 대만",
+      "brand": "JORDAN",
+      "category": "etc",
+      "year": 1991,
+      "size": "OS",
+      "condition": "새 상품 (미사용)",
+      "country": "Taiwan",
+      "price_krw": null,
+      "source_url": "https://m.bunjang.co.kr/products/330282834",
+      "status_check": "public page crawled 2026-09-07; final sale-status verification pending",
+      "publish_ready": false
+    }
+  ]
+}
