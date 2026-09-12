@@ -2,11 +2,11 @@
   "site_title": "ALL COLLECTOR ARCHIVE",
   "brand_line1": "ALL COLLECTOR",
   "brand_line2": "ARCHIVE",
-  "brand_subtitle": "COLLECTION · MARKET · HISTORY",
+  "brand_subtitle": "VINTAGE ARCHIVE / PERSONAL JOURNAL",
   "hero_kicker": "VINTAGE OBJECTS / FIELD NOTES / PRIVATE COLLECTION",
   "hero_title_line1": "ALL COLLECTOR",
   "hero_title_line2": "ARCHIVE",
-  "hero_description": "An independent archive of vintage footwear, clothing and collected objects. Collection records, historical notes, selected market traces and occasional pieces for sale — presented as an archive first, not a resale feed.",
+  "hero_description": "오래된 신발과 의류, 모자와 가방을 모으고 기록하는 개인 아카이브.",
   "archive_title": "SELECTED ARCHIVE",
   "archive_subtitle": "8 OBJECTS / EDITED FROM THE COLLECTION",
   "stories_title": "STORIES / REFERENCE",
@@ -15,13 +15,13 @@
   "instagram_url": "https://www.instagram.com/bnr34_korea/",
   "price_mode_default": "hidden",
   "featured_ids": [
-    "AF1-0001",
-    "AF1-0002",
-    "AF1-0003",
-    "AF1-0004",
-    "AF1-0005",
-    "AF1-0007",
     "TNF-0001",
-    "TNF-0002"
+    "AF1-0001",
+    "FF-CAP-0001",
+    "SL-0001",
+    "FF-TOP-0001",
+    "TNF-0002",
+    "AF1-0004",
+    "FF-SHOES-0001"
   ]
 }

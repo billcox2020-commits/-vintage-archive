@@ -3,98 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ALL COLLECTOR. 빈티지 신발과 의류, 모자와 가방을 모으고 기록하는 개인 아카이브.">
 <title>ALL COLLECTOR ARCHIVE</title>
-<style>
-*{box-sizing:border-box}html{background:#0a0a09}body{margin:0;color:#f1eee6;background:#0a0a09;font-family:Arial,Helvetica,sans-serif}.shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}.side{position:sticky;top:0;height:100vh;padding:28px 22px;border-right:1px solid #27251f;background:#0d0d0b}.brand{font-size:18px;font-weight:800;line-height:.95;letter-spacing:-.03em;margin-bottom:34px}.brand small{display:block;font-size:9px;letter-spacing:.2em;color:#777268;margin-top:8px}.nav{display:flex;flex-direction:column;gap:11px}.nav button{appearance:none;border:0;background:none;color:#8c877d;text-align:left;padding:0;font-size:12px;letter-spacing:.08em;cursor:pointer}.nav button:hover,.nav button.active{color:#fff}.side-foot{position:absolute;bottom:24px;left:22px;font-size:9px;color:#555149;line-height:1.6}.main{min-width:0}.hero{display:flex;flex-direction:column;border-bottom:1px solid #24221d}.hero-copy{order:2;padding:30px 5vw 36px;background:#0b0b09}.kicker{font-size:10px;letter-spacing:.22em;color:#8b8579;margin-bottom:14px}.hero h1{font-size:clamp(36px,5vw,72px);line-height:.95;letter-spacing:-.045em;margin:0;max-width:980px}.hero p{max-width:650px;color:#9c968b;font-size:13px;line-height:1.7;margin:24px 0 0}.hero-image{order:1;position:relative;aspect-ratio:16/9;background:#0a0a09;overflow:hidden}.hero-image img{width:100%;height:100%;object-fit:contain;display:block}.section{padding:34px 5vw 54px;border-bottom:1px solid #23211d}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:20px}.section-head h2{font-size:24px;margin:0;letter-spacing:-.035em}.section-head p{font-size:10px;color:#69645b;margin:0}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.card{background:#11100e;border:1px solid #292720;overflow:hidden}.visual{aspect-ratio:4/3;background:#181612;display:block;position:relative;overflow:hidden}.visual img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s ease}.card:hover .visual img{transform:scale(1.018)}.noimg{display:flex;align-items:center;justify-content:center;height:100%;font-size:10px;letter-spacing:.14em;color:#4f4b43}.badge{position:absolute;left:9px;top:9px;padding:5px 7px;background:rgba(10,10,9,.82);border:1px solid #454137;font-size:8px;letter-spacing:.1em}.body{padding:12px}.id{font-size:8px;letter-spacing:.13em;color:#555149;margin-bottom:6px}.title{font-size:14px;font-weight:700;line-height:1.35}.meta{font-size:10px;color:#817c72;line-height:1.5;margin-top:7px}.price{font-size:12px;margin-top:8px}.source{font-size:9px;margin-top:10px}.source a{color:#6e6960;text-decoration:none}.viewall{display:inline-block;margin-top:18px;border:1px solid #37342d;padding:9px 12px;font-size:10px;letter-spacing:.12em;color:#d7d1c5;text-decoration:none;background:#11100e;cursor:pointer}.stories{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:12px}.story{min-height:250px;padding:20px;border:1px solid #292720;background:linear-gradient(145deg,#191711,#11100e);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}.story.big{min-height:390px}.story.big img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.52}.story.big:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 25%,rgba(8,8,7,.88) 100%)}.story>*{position:relative;z-index:2}.story .eyebrow{font-size:9px;letter-spacing:.17em;color:#8c867a}.story h3{font-size:clamp(22px,3vw,42px);letter-spacing:-.04em;margin:8px 0}.story p{font-size:11px;line-height:1.65;color:#a19a8e;margin:0}.story a{color:#c9c2b5;text-decoration:none;font-size:9px;letter-spacing:.1em;margin-top:12px}.media-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.media-card{aspect-ratio:9/12;border:1px solid #302d27;background:#12110f;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;position:relative;overflow:hidden}.media-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7}.media-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(7,7,6,.92) 100%)}.media-card>*{position:relative;z-index:2}.media-card .play{font-size:28px;margin-bottom:8px}.media-card h3{font-size:16px;margin:0 0 6px}.media-card p{font-size:10px;line-height:1.5;color:#938d82;margin:0}.media-card a{color:#c9c2b5;text-decoration:none;font-size:9px;letter-spacing:.1em;margin-top:10px}.contact{display:grid;grid-template-columns:1fr 1fr;gap:16px}.contactbox{border:1px solid #292720;background:#11100e;padding:18px}.contactbox h3{margin:0 0 8px;font-size:14px}.contactbox p{margin:0;color:#777168;font-size:10px;line-height:1.6}.note{font-size:10px;color:#5f5a52;line-height:1.6;margin-top:18px}.hidden{display:none!important}@media(max-width:1050px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(3,1fr)}.stories{grid-template-columns:1fr 1fr}.story.big{grid-column:1/-1}}@media(max-width:760px){.shell{display:block}.side{position:sticky;z-index:5;top:0;width:100%;height:auto;padding:14px 14px 12px;border-right:0;border-bottom:1px solid #26241f}.brand{margin:0 0 10px;font-size:15px}.brand small,.side-foot{display:none}.nav{flex-direction:row;gap:14px;overflow:auto;white-space:nowrap;padding-bottom:2px}.hero{min-height:auto}.hero-copy{padding:24px 14px 28px}.section{padding:28px 14px 42px}.grid{grid-template-columns:repeat(2,1fr);gap:8px}.stories{grid-template-columns:1fr}.story.big{grid-column:auto}.media-strip{grid-template-columns:repeat(2,1fr)}.contact{grid-template-columns:1fr}}
-</style>
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/site.js" defer></script>
 </head>
 <body>
-<div class="shell">
-<aside class="side">
-  <div class="brand" id="brand">ALL COLLECTOR<br>ARCHIVE<small>COLLECTION · MARKET · HISTORY</small></div>
-  <nav class="nav">
-    <button class="active" data-home="1">HOME</button>
-    <button data-filter="shoes">SHOES</button>
-    <button data-filter="outer">OUTER</button>
-    <button data-filter="top">TOP</button>
-    <button data-filter="bottom">BOTTOM</button>
-    <button data-filter="etc">ETC</button>
-    <button data-jump="stories">STORIES</button>
-    <button data-jump="media">MEDIA</button>
-  </nav>
-  <div class="side-foot">Independent vintage archive.<br>Site text: data/site.json</div>
-</aside>
-<main class="main">
-  <section class="hero" id="home">
-    <div class="hero-copy">
-      <div class="kicker" id="heroKicker">VINTAGE OBJECTS / FIELD NOTES / PRIVATE COLLECTION</div>
-      <h1 id="heroTitle">ALL COLLECTOR<br>ARCHIVE</h1>
-      <p id="heroDescription">An independent archive of vintage footwear, clothing and collected objects. Collection records, historical notes, selected market traces and occasional pieces for sale.</p>
-    </div>
-    <div class="hero-image"><img src="assets/archive-room-cover.jpg" width="1536" height="864" alt="빈티지 패딩, 스니커즈, 모자와 가방이 함께 놓인 아카이브 룸 커버" fetchpriority="high" decoding="async"></div>
-  </section>
-
-  <section class="section" id="archive">
-    <div class="section-head"><h2 id="archiveTitle">SELECTED ARCHIVE</h2><p id="archiveSub">A SMALL WINDOW INTO THE COLLECTION</p></div>
-    <div class="grid" id="grid"></div>
-    <button class="viewall" id="viewAll">VIEW FULL ARCHIVE →</button>
-    <div class="note">가격과 판매 상태는 원본 플랫폼과 분리되어 있으며 필요할 때만 표시됩니다. 카테고리를 누르면 해당 아카이브 전체가 열립니다.</div>
-  </section>
-
-  <section class="section" id="stories">
-    <div class="section-head"><h2 id="storiesTitle">STORIES / REFERENCE</h2><p>EDITORIAL NOTES</p></div>
-    <div class="stories">
-      <article class="story big"><img src="assets/heddels-himalayan.svg" alt="The North Face Himalayan reference"><div class="eyebrow">THE NORTH FACE · FIELD HISTORY</div><h3>FROM SUMMITS TO SIDEWALKS</h3><p>The North Face began in 1966. The Nuptse arrived in 1992, Summit Series was established in 2000, and Japan developed a distinct Goldwin / Purple Label lineage. This section is the start of the archive’s editorial side.</p><a href="https://www.heddels.com/2019/03/north-face-summits-sidewalks/" target="_blank" rel="noopener">REFERENCE ↗</a></article>
-      <article class="story"><div class="eyebrow">TNF · HIMALAYAN</div><h3>Expedition Outerwear</h3><p>Himalayan chronology, tag details, regional versions and private collection comparisons can be inserted here as a long-form archive story.</p></article>
-      <article class="story"><div class="eyebrow">SNEAKER FILE · OPEN SLOT</div><h3>Air Force 1 History</h3><p>Reserved for sneaker-history scans, captions and original commentary.</p></article>
-    </div>
-  </section>
-
-  <section class="section" id="media">
-    <div class="section-head"><h2 id="mediaTitle">MEDIA / REELS</h2><p>VIDEO / SHORT-FORM TEST AREA</p></div>
-    <div class="media-strip">
-      <article class="media-card"><img src="assets/tnf-hanger.svg" alt="archive media test"><div class="play">▶</div><h3>REELS TEST SLOT</h3><p>Public reel embed or thumbnail + caption + date can live here.</p><a id="instagramLink" href="https://www.instagram.com/bnr34_korea/" target="_blank" rel="noopener">INSTAGRAM ↗</a></article>
-      <article class="media-card"><div class="play">＋</div><h3>ADD REEL</h3><p>Paste a public Reel URL later and this slot can become a linked thumbnail.</p></article>
-      <article class="media-card"><div class="play">＋</div><h3>ADD MEDIA</h3><p>Video, lookbook frame, campaign clip or archive scan.</p></article>
-    </div>
-  </section>
-
-  <section class="section" id="contact">
-    <div class="section-head"><h2 id="contactTitle">CONTACT / LINKS</h2><p>READY FOR FINAL DETAILS</p></div>
-    <div class="contact"><div class="contactbox"><h3>Instagram / Email</h3><p>Links can be inserted here later.</p></div><div class="contactbox"><h3>Phone</h3><p>A phone number can use a tel: link so tapping it on mobile opens the dialer directly.</p></div></div>
-  </section>
+<a class="skip" href="#collection">컬렉션으로 바로가기</a>
+<header class="masthead">
+<a class="brand" href="#home" aria-label="ALL COLLECTOR 처음으로">ALL COLLECTOR<span>VINTAGE ARCHIVE / PERSONAL JOURNAL</span></a>
+<nav aria-label="주요 메뉴"><a href="#collection">ALL COLLECTION</a><a href="#collector">ALL COLLECTOR</a><a href="#information">INFORMATION</a></nav>
+</header>
+<main id="home">
+<section class="cover" aria-label="아카이브 커버">
+<img src="assets/archive-room-cover.jpg" width="1536" height="864" alt="컬러별 패딩과 빈티지 스니커즈, 모자, 가방이 함께 놓인 아카이브 룸" fetchpriority="high" decoding="async">
+<div class="cover-line"><span>THE ARCHIVE ROOM</span><span>FOOTWEAR / CLOTHING / COLLECTED OBJECTS</span></div>
+</section>
+<section class="intro section" id="collector">
+<div><p class="eyebrow">01 / ALL COLLECTOR</p><h1>모으고,<br>들여다보고,<br><span>기록합니다.</span></h1></div>
+<div class="intro-copy"><p>오래된 신발과 의류, 모자와 가방.<br>서로 다른 시대의 물건이 한 공간에 모입니다.</p><p>ALL COLLECTOR는 컬렉션을 하나씩 꺼내 보고, 그 안에 남은 색과 소재, 디테일을 기록하는 개인 아카이브입니다.</p><a class="text-link" href="https://www.instagram.com/bnr34_korea/" target="_blank" rel="noopener noreferrer">@bnr34_korea ↗</a></div>
+</section>
+<section class="section collection" id="collection">
+<div class="section-head"><div><p class="eyebrow">02 / ALL COLLECTION</p><h2>컬렉션의 조각들</h2></div><p class="section-note" id="collectionNote">분야별로 꺼내 보는 기록</p></div>
+<div class="collection-tools"><nav class="categories" aria-label="컬렉션 분류"><button type="button" data-category="all" aria-pressed="true">ALL</button><button type="button" data-category="shoes" aria-pressed="false">SHOES</button><button type="button" data-category="outer" aria-pressed="false">OUTER</button><button type="button" data-category="top" aria-pressed="false">TOP</button><button type="button" data-category="bottom" aria-pressed="false">BOTTOM</button><button type="button" data-category="etc" aria-pressed="false">ETC</button></nav><label class="price-control">가격 표시 <select id="priceMode"><option value="hidden">비표시</option><option value="sale">판매 중만</option><option value="all">항상</option></select></label></div>
+<div class="grid" id="grid" aria-live="polite"><p class="empty">컬렉션을 불러오는 중입니다.</p></div>
+<button class="more" type="button" id="viewAll" hidden>전체 기록 보기 <span aria-hidden="true">＋</span></button>
+<noscript><p>컬렉션을 보려면 자바스크립트를 켜 주세요. 아래 원문 링크에서도 기록을 볼 수 있습니다.</p></noscript>
+</section>
+<section class="section information" id="information">
+<div><p class="eyebrow">03 / INFORMATION</p><h2>기록이 이어지는 곳</h2><p class="info-copy">더 많은 사진과 이야기,<br>그리고 각 물건의 원래 기록.</p></div>
+<div class="link-list"><a href="https://m.blog.naver.com/bnr34_jeff" target="_blank" rel="noopener noreferrer"><span><strong>BLOG</strong><small>글과 사진으로 남긴 기록</small></span><span aria-hidden="true">↗</span></a><a href="https://www.instagram.com/bnr34_korea/" target="_blank" rel="noopener noreferrer"><span><strong>INSTAGRAM</strong><small>컬렉션 사진과 영상</small></span><span aria-hidden="true">↗</span></a><a href="https://fruitsfamily.com/seller/m91p/bnr34jeff" target="_blank" rel="noopener noreferrer"><span><strong>FRUITSFAMILY</strong><small>아이템별 사진과 상세 기록</small></span><span aria-hidden="true">↗</span></a><a href="https://www.heddels.com/2019/03/north-face-summits-sidewalks/" target="_blank" rel="noopener noreferrer"><span><strong>READING / THE NORTH FACE</strong><small>Heddels · From Summits to Sidewalks</small></span><span aria-hidden="true">↗</span></a></div>
+</section>
 </main>
-</div>
-<script>
-const fmt=n=>n?new Intl.NumberFormat('ko-KR').format(n)+'원':'';
-const statusLabel={for_sale:'FOR SALE',reserved:'RESERVED',sold:'SOLD',archive:'ARCHIVE'};
-let items=[];let current='home';let site={};
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function applySite(){
-  document.title=site.site_title||'ALL COLLECTOR ARCHIVE';
-  const b1=site.brand_line1||'ALL COLLECTOR',b2=site.brand_line2||'ARCHIVE',bs=site.brand_subtitle||'COLLECTION · MARKET · HISTORY';
-  document.getElementById('brand').innerHTML=`${esc(b1)}<br>${esc(b2)}<small>${esc(bs)}</small>`;
-  document.getElementById('heroKicker').textContent=site.hero_kicker||'VINTAGE OBJECTS / FIELD NOTES / PRIVATE COLLECTION';
-  document.getElementById('heroTitle').innerHTML=`${esc(site.hero_title_line1||b1)}<br>${esc(site.hero_title_line2||b2)}`;
-  document.getElementById('heroDescription').textContent=site.hero_description||'';
-  document.getElementById('storiesTitle').textContent=site.stories_title||'STORIES / REFERENCE';
-  document.getElementById('mediaTitle').textContent=site.media_title||'MEDIA / REELS';
-  document.getElementById('contactTitle').textContent=site.contact_title||'CONTACT / LINKS';
-  if(site.instagram_url)document.getElementById('instagramLink').href=site.instagram_url;
-}
-async function load(){
-  try{const [sr,cr]=await Promise.all([fetch('data/site.json',{cache:'no-store'}),fetch('data/catalog.json',{cache:'no-store'})]);site=await sr.json();const d=await cr.json();items=d.items||[];applySite();renderHome()}
-  catch(e){document.getElementById('grid').innerHTML='<div class="note">Catalog could not be loaded.</div>'}
-}
-function cardHTML(x){const badge=x.status?`<span class="badge">${statusLabel[x.status]||String(x.status).toUpperCase()}</span>`:'';const img=x.image?`<img src="${x.image}" alt="${esc(x.title)}" loading="lazy">`:`<div class="noimg">ADD PHOTO</div>`;const meta=[x.year,x.size?x.size+(String(x.size).match(/^\d+$/)?'mm':''):''].filter(Boolean).join(' · ');const price=(x.show_price&&x.price_krw)?`<div class="price">${fmt(x.price_krw)}</div>`:'';const source=x.source_url?`<div class="source"><a href="${x.source_url}" target="_blank" rel="noopener">SOURCE ↗</a></div>`:'';return `<a class="visual" href="${x.source_url||'#'}" target="_blank" rel="noopener">${img}${badge}</a><div class="body"><div class="id">${esc(x.id)}</div><div class="title">${esc(x.title)}</div><div class="meta">${esc(meta)}</div>${price}${source}</div>`}
-function renderList(list){const g=document.getElementById('grid');g.innerHTML='';list.forEach(x=>{const a=document.createElement('article');a.className='card';a.innerHTML=cardHTML(x);g.appendChild(a)})}
-function renderHome(){current='home';document.getElementById('archiveTitle').textContent=site.archive_title||'SELECTED ARCHIVE';document.getElementById('archiveSub').textContent=site.archive_subtitle||'A SMALL WINDOW INTO THE COLLECTION';renderList(items.filter(x=>x.source!=='fruitsfamily').slice(0,4));document.getElementById('viewAll').classList.remove('hidden')}
-function renderCategory(filter){current=filter;document.getElementById('archiveTitle').textContent=filter.toUpperCase();document.getElementById('archiveSub').textContent='ARCHIVE INDEX';renderList(items.filter(x=>x.category===filter));document.getElementById('viewAll').classList.add('hidden');document.getElementById('archive').scrollIntoView({behavior:'smooth'})}
-document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');renderCategory(b.dataset.filter)});
-document.querySelector('[data-home]').onclick=()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));document.querySelector('[data-home]').classList.add('active');renderHome();document.getElementById('home').scrollIntoView({behavior:'smooth'})};
-document.querySelectorAll('[data-jump]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.jump).scrollIntoView({behavior:'smooth'}));
-document.getElementById('viewAll').onclick=()=>{document.getElementById('archiveTitle').textContent='FULL ARCHIVE';document.getElementById('archiveSub').textContent='ALL CURRENT RECORDS';renderList(items);document.getElementById('viewAll').classList.add('hidden')};
-load();
-</script>
+<footer><span>ALL COLLECTOR ARCHIVE</span><a href="#home">처음으로 ↑</a></footer>
+<dialog id="detail" aria-labelledby="detailTitle"><button class="close" type="button" aria-label="상세 기록 닫기">닫기 ×</button><div id="detailContent"></div></dialog>
 </body>
 </html>
