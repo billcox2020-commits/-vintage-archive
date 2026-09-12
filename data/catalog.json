@@ -3,12 +3,13 @@
     "site_title": "VINTAGE ARCHIVE",
     "show_prices_by_default": false,
     "show_status_badges": true,
-    "notes": "Edit each item's price_krw, show_price and status without touching index.html. status can be blank, for_sale, reserved, sold, archive."
+    "notes": "Each item keeps both a broad category and a brand. status can be blank, for_sale, reserved, sold, archive."
   },
   "items": [
     {
       "id": "AF1-0001",
       "category": "shoes",
+      "brand": "NIKE",
       "source": "bunjang",
       "title": "95년 나이키 에어포스1 하이 CVS 260 신품",
       "year": 1995,
@@ -23,6 +24,7 @@
     {
       "id": "AF1-0002",
       "category": "shoes",
+      "brand": "NIKE",
       "source": "bunjang",
       "title": "1995 나이키 에어포스1 하이 NYC 신품 265",
       "year": 1995,
@@ -37,6 +39,7 @@
     {
       "id": "AF1-0003",
       "category": "shoes",
+      "brand": "NIKE",
       "source": "bunjang",
       "title": "95년 나이키 에어포스 1 미드 허니버스 265 신품",
       "year": 1995,
@@ -51,6 +54,7 @@
     {
       "id": "AF1-0004",
       "category": "shoes",
+      "brand": "NIKE",
       "source": "bunjang",
       "title": "나이키 에어포스 1 캔버스 SC 레드 신품 275",
       "year": null,
@@ -65,6 +69,7 @@
     {
       "id": "AF1-0005",
       "category": "shoes",
+      "brand": "NIKE",
       "source": "bunjang",
       "title": "나이키 에어포스1 하이 캔버스 265",
       "year": null,
@@ -79,6 +84,7 @@
     {
       "id": "AF1-0006",
       "category": "shoes",
+      "brand": "NIKE",
       "source": "bunjang",
       "title": "1997 Nike Air Force 1 Mid SC Jewel",
       "year": 1997,
@@ -93,6 +99,7 @@
     {
       "id": "AF1-0007",
       "category": "shoes",
+      "brand": "NIKE",
       "source": "bunjang",
       "title": "2016 나이키 에어포스1 하이 CVS 신품 260",
       "year": 2016,
@@ -107,6 +114,7 @@
     {
       "id": "TNF-0001",
       "category": "outer",
+      "brand": "THE NORTH FACE",
       "source": "bunjang",
       "title": "노스페이스 서밋 시리즈 히말라야 1 라지 12F/W",
       "year": 2012,
@@ -121,6 +129,7 @@
     {
       "id": "TNF-0002",
       "category": "outer",
+      "brand": "THE NORTH FACE",
       "source": "bunjang",
       "title": "The North Face Baltoro Red / Black XXL",
       "year": null,
@@ -135,6 +144,7 @@
     {
       "id": "DIOR-0001",
       "category": "outer",
+      "brand": "DIOR HOMME",
       "source": "bunjang",
       "title": "Dior Homme Coated Black Denim Jacket 06",
       "year": 2006,
@@ -149,6 +159,7 @@
     {
       "id": "SL-0001",
       "category": "top",
+      "brand": "SAINT LAURENT",
       "source": "bunjang",
       "title": "Saint Laurent cardigan 48",
       "year": null,
@@ -163,6 +174,7 @@
     {
       "id": "FF-CAP-0001",
       "category": "etc",
+      "brand": "SUPREME",
       "source": "fruitsfamily",
       "title": "슈프림 캠프캡 연청데님",
       "year": null,
@@ -180,6 +192,7 @@
     {
       "id": "FF-TOP-0001",
       "category": "top",
+      "brand": "POLO RALPH LAUREN",
       "source": "fruitsfamily",
       "title": "폴로 USA 성조기 레드포니 데님 남방 L",
       "year": null,
@@ -197,6 +210,7 @@
     {
       "id": "FF-SHOES-0001",
       "category": "shoes",
+      "brand": "NIKE",
       "source": "fruitsfamily",
       "title": "1986년 빅나이키 데드스탁 한국산",
       "year": 1986,
