@@ -1,0 +1,93 @@
+{
+  "items": [
+    {
+      "id": "TNF-BALTORO-RED-001",
+      "category": "outer",
+      "brand": "THE NORTH FACE",
+      "source": "personal",
+      "title": "The North Face Summit Series Old Baltoro Parka",
+      "year": null,
+      "size": "XL",
+      "image": "",
+      "gallery": [],
+      "price_krw": null,
+      "show_price": false,
+      "status": "archive",
+      "status_text": "ARCHIVE",
+      "description": "Red / Black vintage Summit Series Old Baltoro Parka with fur hood. Measurements: Chest 67 cm / Shoulder 58 cm / Length 75 cm / Sleeve 68 cm. Size XL is provisional until the original size label is confirmed.",
+      "measurements": {
+        "chest_cm": 67,
+        "shoulder_cm": 58,
+        "length_cm": 75,
+        "sleeve_cm": 68
+      }
+    },
+    {
+      "id": "AF1-2006-SNAKE-290",
+      "category": "shoes",
+      "brand": "NIKE",
+      "source": "personal",
+      "title": "2006 Nike Air Force 1 Snakeskin",
+      "year": 2006,
+      "size": "290",
+      "image": "",
+      "gallery": [],
+      "price_krw": null,
+      "show_price": false,
+      "status": "archive",
+      "status_text": "ARCHIVE",
+      "description": "White / Black / Snakeskin. Condition: 미품."
+    },
+    {
+      "id": "AF1-2001-CVS-US7",
+      "category": "shoes",
+      "brand": "NIKE",
+      "source": "personal",
+      "title": "2001 Nike Air Force 1 CVS Low",
+      "year": 2001,
+      "size": "US 7",
+      "image": "",
+      "gallery": [],
+      "price_krw": null,
+      "show_price": false,
+      "status": "archive",
+      "status_text": "DEAD STOCK",
+      "description": "Black / White canvas Air Force 1 CVS Low. Dead Stock."
+    },
+    {
+      "id": "AF1-CVS-260-US8",
+      "category": "shoes",
+      "brand": "NIKE",
+      "source": "personal",
+      "title": "Nike Air Force 1 CVS Low",
+      "year": null,
+      "size": "260",
+      "size_note": "US 8",
+      "image": "",
+      "gallery": [],
+      "price_krw": null,
+      "show_price": false,
+      "status": "archive",
+      "status_text": "NDS",
+      "description": "Black / White canvas Air Force 1 CVS Low. Size 260 / US 8. Condition: NDS. Only shoes."
+    },
+    {
+      "id": "AF1-1994-CVS-TRUE-ROYAL",
+      "category": "shoes",
+      "brand": "NIKE",
+      "source": "personal",
+      "title": "1994 Nike Air Force 1 CVS SC True Royal / White",
+      "year": 1994,
+      "size": "265",
+      "image": "",
+      "gallery": [],
+      "style_code": "630099-411",
+      "country": "China",
+      "price_krw": null,
+      "show_price": false,
+      "status": "archive",
+      "status_text": "ARCHIVE",
+      "description": "True Royal / White canvas Air Force 1 CVS SC. Box label: US 8.5 / CM 26.5 / 630099-411 / Made in China."
+    }
+  ]
+}
