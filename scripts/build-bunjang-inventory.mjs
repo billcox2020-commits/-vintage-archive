@@ -16,10 +16,11 @@ const normalize = (value) => String(value ?? '')
 
 function categoryFor(name, categoryLabels = '') {
   const n = `${name} ${categoryLabels}`.toLowerCase();
-  if (/팬츠|바지|청바지|데님(?!\s*(캡|모자))|진스(?!\s*(캡|모자))|오버롤/.test(n)) return 'bottom';
-  if (/패딩|자켓|재킷|점퍼|발토르|발토로|히말라야|눕시|라이더|봄버|블레이저|코트|후리스|플리스/.test(n)) return 'outer';
-  if (/셔츠|남방|티셔츠|반팔|긴팔|후드|맨투맨|니트|가디건|져지|저지|스웨터|상의|스웨트/.test(n)) return 'top';
-  if (/에어포스|에어 포스|조던|덩크|반달|vandal|코르테즈|스니커|부츠|슈즈|신발|운동화|우븐|줌플라이트|빅나이키|터미네이터|루부탱|첼시|하이탑|로우탑/.test(n)) return 'shoes';
+  if (/캡|모자|볼캡|롱빌|캠프캡|가방|웨이스트백|크로스백|힙색|팩백|백팩|차키|공키|키홀더|지샥|g-shock|gshock|카시오|시계|밴드|텀블러|물통/.test(n)) return 'etc';
+  if (/패딩|자켓|재킷|점퍼|발토르|발토로|히말라야|눕시|라이더|봄버|블레이저|코트|후리스|플리스|베스트|조끼|바람막이|트랙탑/.test(n)) return 'outer';
+  if (/셔츠|남방|티셔츠|반팔|긴팔|후드|맨투맨|니트|가디건|져지|저지|스웨터|상의|스웨트|럭비티|카라티|폴로셔츠/.test(n)) return 'top';
+  if (/팬츠|바지|청바지|데님|진스|오버롤|디스진/.test(n)) return 'bottom';
+  if (/에어포스|에어 포스|조던|덩크|반달|vandal|코르테즈|스니커|부츠|슈즈|신발|운동화|우븐|줌플라이트|빅나이키|터미네이터|루부탱|첼시|하이탑|로우탑|리복|reebok|반스|vans/.test(n)) return 'shoes';
   return 'etc';
 }
 
