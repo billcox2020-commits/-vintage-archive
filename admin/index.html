@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="ALL COLLECTOR ARCHIVE 기록 관리">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data: blob: https:; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+<title>ARCHIVE ADMIN · ALL COLLECTOR</title>
+<link rel="stylesheet" href="admin.css">
+<script src="admin.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="wordmark" href="../">ALL COLLECTOR <span>ARCHIVE ADMIN</span></a>
+  <div class="top-actions">
+    <span id="connectionState" class="connection">연결 안 됨</span>
+    <button id="disconnectButton" class="text-button" type="button" hidden>연결 해제</button>
+    <a class="text-button" href="../" target="_blank" rel="noopener">사이트 보기 ↗</a>
+  </div>
+</header>
+
+<main>
+  <section id="loginPanel" class="login-panel" aria-labelledby="loginTitle">
+    <p class="kicker">PRIVATE EDITOR</p>
+    <h1 id="loginTitle">아카이브 관리</h1>
+    <p>GitHub의 이 저장소에만 접근 가능한 토큰을 연결하면 사진과 기록을 직접 추가·수정할 수 있습니다. 토큰은 서버나 사이트 파일에 저장되지 않고, 이 탭을 닫으면 자동으로 사라집니다.</p>
+    <label class="token-field">GitHub fine-grained token
+      <input id="tokenInput" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="github_pat_…">
+    </label>
+    <button id="connectButton" class="primary wide" type="button">관리 화면 연결</button>
+    <details>
+      <summary>처음 한 번만: 토큰 만드는 법</summary>
+      <ol>
+        <li>GitHub에서 <strong>Fine-grained personal access token</strong>을 만듭니다.</li>
+        <li>Repository access는 <strong>Only select repositories</strong>에서 <code>-vintage-archive</code>만 선택합니다.</li>
+        <li>Permissions → Repository permissions → Contents를 <strong>Read and write</strong>로 지정합니다.</li>
+        <li>생성된 토큰을 위 칸에 붙여 넣고 연결합니다.</li>
+      </ol>
+      <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub 토큰 만들기 ↗</a>
+    </details>
+    <p id="loginError" class="error" role="alert"></p>
+  </section>
+
+  <section id="workspace" class="workspace" hidden>
+    <aside class="records-panel">
+      <div class="records-head">
+        <div><p class="kicker">ALL RECORDS</p><h1>기록 관리</h1></div>
+        <button id="newButton" class="primary" type="button">＋ 새 기록</button>
+      </div>
+      <div class="search-row">
+        <label class="search"><span class="sr-only">기록 검색</span><input id="searchInput" type="search" placeholder="제목·브랜드·연도 검색"></label>
+        <select id="categoryFilter" aria-label="카테고리 필터">
+          <option value="all">ALL</option><option value="shoes">SHOES</option><option value="outer">OUTER</option><option value="top">TOP</option><option value="bottom">BOTTOM</option><option value="etc">ETC</option>
+        </select>
+      </div>
+      <p id="recordCount" class="count"></p>
+      <div id="recordList" class="record-list" aria-live="polite"></div>
+    </aside>
+
+    <section id="editorPanel" class="editor-panel" aria-labelledby="editorTitle">
+      <div class="editor-head">
+        <button id="backButton" class="back" type="button">← 목록</button>
+        <div><p id="editorMode" class="kicker">NEW RECORD</p><h2 id="editorTitle">새 기록</h2></div>
+        <button id="hideButton" class="danger" type="button" hidden>삭제</button>
+      </div>
+      <form id="recordForm">
+        <div class="photo-field">
+          <div id="photoPreview" class="photo-preview"><span>사진 미리보기</span></div>
+          <label class="file-button">사진 선택<input id="imageFile" type="file" accept="image/*"></label>
+          <p>아이폰 사진은 업로드할 때 웹용 JPG로 자동 변환됩니다.</p>
+        </div>
+
+        <div class="form-fields">
+          <label class="full">제목 <strong>*</strong><input id="titleInput" name="title" required maxlength="180"></label>
+          <label>브랜드<input id="brandInput" name="brand" maxlength="80" placeholder="NIKE"></label>
+          <label>카테고리<select id="categoryInput" name="category"><option value="shoes">SHOES</option><option value="outer">OUTER</option><option value="top">TOP</option><option value="bottom">BOTTOM</option><option value="etc">ETC</option></select></label>
+          <label>연도<input id="yearInput" name="year" inputmode="numeric" pattern="[0-9]*" placeholder="1994"></label>
+          <label>사이즈<input id="sizeInput" name="size" maxlength="40" placeholder="265 / XL"></label>
+          <label>상태<select id="statusInput" name="status"><option value="archive">ARCHIVE</option><option value="for_sale">판매 중</option><option value="reserved">예약 중</option><option value="sold">SOLD</option></select></label>
+          <label>표시 문구<input id="statusTextInput" name="status_text" maxlength="60" placeholder="DEAD STOCK / NDS"></label>
+          <label>가격(원)<input id="priceInput" name="price_krw" inputmode="numeric" pattern="[0-9]*" placeholder="400000"></label>
+          <label>게시일<input id="publishedInput" name="published_at" type="date"></label>
+          <label class="full">원문 링크<input id="sourceUrlInput" name="source_url" type="url" inputmode="url" autocapitalize="none" placeholder="https://…"></label>
+          <label class="full">사진 주소<input id="imageUrlInput" name="image" inputmode="url" autocapitalize="none" placeholder="사진을 새로 올리지 않을 때만 사용"></label>
+          <label class="full">설명<textarea id="descriptionInput" name="description" rows="7" maxlength="4000"></textarea></label>
+          <label class="check full"><input id="showPriceInput" name="show_price" type="checkbox"><span>가격 표시 허용</span></label>
+        </div>
+        <div class="savebar">
+          <p id="saveMessage" role="status"></p>
+          <button id="saveButton" class="primary" type="submit">저장하고 사이트에 반영</button>
+        </div>
+      </form>
+    </section>
+  </section>
+</main>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
