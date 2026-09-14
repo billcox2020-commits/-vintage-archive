@@ -6,6 +6,9 @@ const BRANCH='main';
 const PATHS={personal:'data/personal-posts.json',active:'data/bunjang-active.json',changes:'data/admin-overrides.json'};
 const API='https://api.github.com';
 const TOKEN_KEY='all-collector-admin-token';
+const VAULT_KEY='all-collector-admin-vault-v1';
+const encoder=new TextEncoder();
+const decoder=new TextDecoder();
 const categoryNames={shoes:'SHOES',outer:'OUTER',top:'TOP',bottom:'BOTTOM',etc:'ETC'};
 const statusNames={archive:'ARCHIVE',for_sale:'판매 중',reserved:'예약 중',sold:'SOLD'};
 
@@ -14,6 +17,14 @@ const loginPanel=$('#loginPanel');
 const workspace=$('#workspace');
 const tokenInput=$('#tokenInput');
 const connectButton=$('#connectButton');
+const unlockButton=$('#unlockButton');
+const unlockPassword=$('#unlockPassword');
+const tokenLogin=$('#tokenLogin');
+const passwordLogin=$('#passwordLogin');
+const passwordButton=$('#passwordButton');
+const passwordDialog=$('#passwordDialog');
+const passwordForm=$('#passwordForm');
+const passwordError=$('#passwordError');
 const disconnectButton=$('#disconnectButton');
 const connectionState=$('#connectionState');
 const loginError=$('#loginError');
@@ -41,6 +52,37 @@ let selected=null;
 let pendingImage=null;
 let busy=false;
 let toastTimer=0;
+
+function randomBytes(length){const bytes=new Uint8Array(length);crypto.getRandomValues(bytes);return bytes}
+
+function base64ToBytes(value){return Uint8Array.from(atob(value),character=>character.charCodeAt(0))}
+
+async function passwordKey(password,salt){
+  const material=await crypto.subtle.importKey('raw',encoder.encode(password),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:250000,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+}
+
+async function saveTokenVault(password){
+  const salt=randomBytes(16);const iv=randomBytes(12);const key=await passwordKey(password,salt);
+  const encrypted=await crypto.subtle.encrypt({name:'AES-GCM',iv},key,encoder.encode(token));
+  localStorage.setItem(VAULT_KEY,JSON.stringify({version:1,salt:bytesToBase64(salt),iv:bytesToBase64(iv),cipher:bytesToBase64(new Uint8Array(encrypted))}));
+}
+
+async function readTokenVault(password){
+  const vault=JSON.parse(localStorage.getItem(VAULT_KEY)||'null');
+  if(!vault||vault.version!==1)throw new Error('저장된 로그인을 찾지 못했습니다.');
+  const salt=base64ToBytes(vault.salt);const iv=base64ToBytes(vault.iv);const key=await passwordKey(password,salt);
+  const decrypted=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,base64ToBytes(vault.cipher));
+  return decoder.decode(decrypted);
+}
+
+function hasTokenVault(){return Boolean(localStorage.getItem(VAULT_KEY))}
+
+function showLoginMode(useToken=false){
+  const usePassword=hasTokenVault()&&!useToken;
+  passwordLogin.hidden=!usePassword;tokenLogin.hidden=usePassword;
+  unlockPassword.value='';loginError.textContent='';
+}
 
 function api(path,options={}){
   return fetch(`${API}${path}`,{
@@ -317,27 +359,70 @@ async function loadRecords(){
   changes=normalizeChanges(changesFile.data);rebuildRecords();renderList();
 }
 
-async function connect(){
-  const candidate=tokenInput.value.trim()||sessionStorage.getItem(TOKEN_KEY)||'';
+async function connectWithToken(candidate){
   if(!candidate){loginError.textContent='토큰을 붙여 넣어 주세요.';return}
-  token=candidate;connectButton.disabled=true;connectButton.textContent='확인 중…';loginError.textContent='';
+  token=candidate;connectButton.disabled=true;unlockButton.disabled=true;connectButton.textContent='확인 중…';loginError.textContent='';
   try{
     const [user,repo]=await Promise.all([api('/user'),api(`/repos/${OWNER}/${REPO}`)]);
     if(repo.permissions&&!repo.permissions.push)throw new Error('이 저장소에 쓰기 권한이 없습니다.');
     username=user.login;sessionStorage.setItem(TOKEN_KEY,token);await loadRecords();
-    loginPanel.hidden=true;workspace.hidden=false;disconnectButton.hidden=false;
+    loginPanel.hidden=true;workspace.hidden=false;disconnectButton.hidden=false;passwordButton.hidden=false;
+    passwordButton.textContent=hasTokenVault()?'비밀번호 변경':'비밀번호 설정';
     connectionState.textContent=`${username} 연결됨`;connectionState.classList.add('on');
     if(matchMedia('(max-width:860px)').matches)closeEditor();else openEditor(null);
-  }catch(error){token='';sessionStorage.removeItem(TOKEN_KEY);loginError.textContent=humanError(error)}finally{connectButton.disabled=false;connectButton.textContent='관리 화면 연결'}
+  }catch(error){token='';sessionStorage.removeItem(TOKEN_KEY);loginError.textContent=humanError(error)}finally{connectButton.disabled=false;unlockButton.disabled=false;connectButton.textContent='관리 화면 연결'}
+}
+
+async function connect(){
+  const candidate=tokenInput.value.trim()||sessionStorage.getItem(TOKEN_KEY)||'';
+  await connectWithToken(candidate);
+}
+
+async function unlock(){
+  const password=unlockPassword.value;
+  if(!password){loginError.textContent='관리자 비밀번호를 입력해 주세요.';return}
+  unlockButton.disabled=true;unlockButton.textContent='확인 중…';loginError.textContent='';
+  try{await connectWithToken(await readTokenVault(password))}
+  catch(error){loginError.textContent=error?.name==='OperationError'?'비밀번호가 맞지 않습니다.':humanError(error)}
+  finally{unlockButton.disabled=false;unlockButton.textContent='비밀번호로 열기'}
+}
+
+function openPasswordDialog(){
+  passwordError.textContent='';$('#newPassword').value='';$('#confirmPassword').value='';
+  $('#removeSavedLoginButton').hidden=!hasTokenVault();passwordDialog.showModal();
+}
+
+async function storePassword(event){
+  event.preventDefault();
+  const password=$('#newPassword').value;const confirmation=$('#confirmPassword').value;
+  if(password.length<4){passwordError.textContent='비밀번호는 4자리 이상 입력해 주세요.';return}
+  if(password!==confirmation){passwordError.textContent='두 비밀번호가 서로 다릅니다.';return}
+  const button=$('#savePasswordButton');button.disabled=true;button.textContent='암호화 중…';passwordError.textContent='';
+  try{await saveTokenVault(password);passwordDialog.close();passwordButton.textContent='비밀번호 변경';showToast('관리자 비밀번호를 이 기기에 저장했습니다.')}
+  catch(error){passwordError.textContent='이 브라우저에서는 비밀번호 저장을 사용할 수 없습니다.'}
+  finally{button.disabled=false;button.textContent='비밀번호 저장'}
+}
+
+function removeSavedLogin(){
+  localStorage.removeItem(VAULT_KEY);passwordDialog.close();passwordButton.textContent='비밀번호 설정';showToast('이 기기의 저장된 로그인을 삭제했습니다.');
 }
 
 function disconnect(){
-  token='';username='';sessionStorage.removeItem(TOKEN_KEY);workspace.hidden=true;loginPanel.hidden=false;disconnectButton.hidden=true;
+  token='';username='';sessionStorage.removeItem(TOKEN_KEY);workspace.hidden=true;loginPanel.hidden=false;disconnectButton.hidden=true;passwordButton.hidden=true;
   connectionState.textContent='연결 안 됨';connectionState.classList.remove('on');tokenInput.value='';loginError.textContent='';
+  showLoginMode();
 }
 
 connectButton.addEventListener('click',connect);
 tokenInput.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();connect()}});
+unlockButton.addEventListener('click',unlock);
+unlockPassword.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();unlock()}});
+$('#useTokenButton').addEventListener('click',()=>showLoginMode(true));
+passwordButton.addEventListener('click',openPasswordDialog);
+passwordForm.addEventListener('submit',storePassword);
+$('#closePasswordDialog').addEventListener('click',()=>passwordDialog.close());
+$('#removeSavedLoginButton').addEventListener('click',removeSavedLogin);
+passwordDialog.addEventListener('click',event=>{if(event.target===passwordDialog)passwordDialog.close()});
 disconnectButton.addEventListener('click',disconnect);
 $('#newButton').addEventListener('click',()=>openEditor(null));
 $('#backButton').addEventListener('click',closeEditor);
@@ -350,4 +435,5 @@ imageFile.addEventListener('change',()=>{
 });
 $('#imageUrlInput').addEventListener('change',event=>{if(!pendingImage)setPreview(publicImage(event.target.value.trim()))});
 
+showLoginMode();
 if(sessionStorage.getItem(TOKEN_KEY))connect();
