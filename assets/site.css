@@ -67,6 +67,8 @@ footer{display:flex;justify-content:space-between;gap:20px;padding:28px 5vw;font
 dialog{background:var(--bg);color:var(--text);border:1px solid var(--line);width:min(850px,94vw);max-height:90vh;padding:24px}
 dialog::backdrop{background:#000c}
 .close{display:block;margin:0 0 18px auto;background:none;color:var(--text);border:1px solid var(--line);padding:8px 14px;font-size:14px}
+.detail-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.detail-gallery .detail-image:first-child{grid-column:1/-1}
 .detail-image{display:block;max-height:55vh;width:100%;object-fit:contain;background:var(--panel)}
 dialog h2{font-size:26px;margin:20px 0 10px}
 dialog p{white-space:pre-line}
@@ -105,6 +107,8 @@ body:has(dialog[open]){overflow:hidden}
 .information h2{font-size:28px}
 footer{padding:24px 20px;font-size:11px}
 dialog{padding:16px}
+.detail-gallery{grid-template-columns:1fr}
+.detail-gallery .detail-image:first-child{grid-column:auto}
 .detail-image{max-height:45vh}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
