@@ -6,21 +6,29 @@
       "brand": "THE NORTH FACE",
       "source": "personal",
       "title": "The North Face Summit Series Old Baltoro Parka",
-      "year": null,
+      "year": 2001,
       "size": "XL",
       "image": "assets/items/tnf-old-baltoro/front.svg",
-      "gallery": [],
+      "gallery": [
+        "assets/uploads/20260914-tnf-baltoro-red-001-2.jpg",
+        "assets/uploads/20260914-tnf-baltoro-red-001-3.jpg",
+        "assets/uploads/20260914-tnf-baltoro-red-001-4.jpg",
+        "assets/uploads/20260914-tnf-baltoro-red-001-5.jpg",
+        "assets/uploads/20260914-tnf-baltoro-red-001-6.jpg"
+      ],
       "price_krw": null,
-      "show_price": false,
-      "status": "archive",
-      "status_text": "ARCHIVE",
+      "show_price": true,
+      "status": "for_sale",
+      "status_text": "Used",
       "description": "Red / Black vintage Summit Series Old Baltoro Parka with fur hood. Measurements: Chest 67 cm / Shoulder 58 cm / Length 75 cm / Sleeve 68 cm. Size XL is provisional until the original size label is confirmed.",
       "measurements": {
         "chest_cm": 67,
         "shoulder_cm": 58,
         "length_cm": 75,
         "sleeve_cm": 68
-      }
+      },
+      "category_locked": true,
+      "published_at": "2026-09-14"
     },
     {
       "id": "AF1-2006-SNAKE-290",
