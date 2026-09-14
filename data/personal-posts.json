@@ -79,13 +79,15 @@
       "title": "1994 Nike Air Force 1 CVS",
       "year": 1994,
       "size": "265",
-      "image": "assets/items/af1-1994-cvs-true-royal/main.svg",
+      "image": "assets/uploads/20260914-af1-1994-cvs-true-royal.jpg",
       "gallery": [],
       "price_krw": null,
       "show_price": false,
       "status": "archive",
       "status_text": "ARCHIVE",
-      "description": "Blue / White canvas Air Force 1 CVS. Size 265."
+      "description": "Blue / White canvas Air Force 1 CVS. Size 265.",
+      "category_locked": true,
+      "published_at": null
     }
   ]
 }
