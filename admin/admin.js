@@ -141,7 +141,8 @@ function rebuildRecords(){
 function publicImage(value){
   if(!value)return '';
   if(/^https?:\/\//i.test(value))return value;
-  return `../${String(value).replace(/^\.\//,'')}`;
+  const path=String(value).replace(/^\.\//,'').split('/').map(encodeURIComponent).join('/');
+  return `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${path}`;
 }
 
 function clearElement(element){while(element.firstChild)element.firstChild.remove()}
