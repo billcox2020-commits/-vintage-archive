@@ -35,7 +35,16 @@ textarea{resize:vertical;min-height:150px}
 .login-panel ol{padding-left:22px}
 .login-panel li{margin:8px 0}
 .login-panel code{font-size:.8rem;color:var(--accent)}
+.login-switch{display:block;margin:12px auto 0}
 .error{min-height:1.5em;color:var(--danger);font-size:.85rem}
+.password-dialog{width:min(480px,calc(100% - 32px));padding:0;border:1px solid var(--line);background:var(--panel);color:var(--text);box-shadow:var(--shadow)}
+.password-dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}
+.password-dialog form{display:block;padding:34px;position:relative}
+.password-dialog h2{margin-bottom:14px}
+.password-dialog form>p:not(.kicker):not(.error){color:var(--muted);font-size:.88rem;margin:0 0 22px}
+.password-dialog label{display:grid;gap:7px;color:var(--muted);font-size:.8rem;margin-top:14px}
+.dialog-close{position:absolute;right:20px;top:16px;border:0;background:none;color:var(--muted);font-size:1.8rem;line-height:1}
+.remove-login{display:block;margin:14px auto 0;color:var(--danger)}
 .workspace{display:grid;grid-template-columns:minmax(340px,42%) 1fr;min-height:calc(100vh - 79px)}
 .records-panel{border-right:1px solid var(--line);padding:30px 2.5vw;min-width:0}
 .records-head,.editor-head{display:flex;align-items:center;justify-content:space-between;gap:18px}
@@ -78,7 +87,7 @@ form{display:grid;grid-template-columns:minmax(220px,34%) 1fr;gap:34px;padding-t
   .back{display:block}.editor-head{display:grid;grid-template-columns:auto 1fr auto;align-items:center}.editor-head h2{font-size:1.45rem}
   form{grid-template-columns:1fr;gap:24px;padding-top:20px}.photo-field{position:static}.photo-preview{max-height:52vh}.form-fields{grid-template-columns:1fr}.form-fields .full{grid-column:auto}.savebar{width:100%;padding:12px 18px}.savebar p{display:none}.savebar .primary{width:100%}
 }
-@media(max-width:520px){.login-panel{width:100%;margin:0;border-width:0;padding:34px 20px;box-shadow:none}.wordmark{font-size:1.05rem}.top-actions .text-button:first-of-type{display:none}.search-row{grid-template-columns:1fr 105px}.record strong{font-size:.88rem}}
+@media(max-width:520px){.login-panel{width:100%;margin:0;border-width:0;padding:34px 20px;box-shadow:none}.wordmark{font-size:1.05rem}.top-actions>a.text-button{display:none}.top-actions{gap:10px}.password-dialog form{padding:30px 20px}.search-row{grid-template-columns:1fr 105px}.record strong{font-size:.88rem}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 
 @media(max-width:860px){.savebar{flex-direction:column;gap:8px}.savebar p{display:block}.editor-panel{padding-bottom:170px}}
