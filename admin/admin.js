@@ -49,7 +49,7 @@ let rawActive=[];
 let changes={hidden_ids:[],overrides:{}};
 let records=[];
 let selected=null;
-let pendingImage=null;
+let draftImages=[];
 let busy=false;
 let toastTimer=0;
 
@@ -176,10 +176,26 @@ function renderList(){
   recordList.append(fragment);
 }
 
-function setPreview(src){
+function releaseDraftImages(){
+  for(const item of draftImages)if(item.kind==='pending')URL.revokeObjectURL(item.preview);
+  draftImages=[];
+}
+
+function setPreview(){
   clearElement(photoPreview);
-  if(!src){const span=document.createElement('span');span.textContent='사진 미리보기';photoPreview.append(span);return}
-  const img=document.createElement('img');img.src=src;img.alt='선택한 기록 사진';img.addEventListener('error',()=>setPreview(''),{once:true});photoPreview.append(img);
+  if(!draftImages.length){const span=document.createElement('span');span.textContent='사진 미리보기';photoPreview.append(span);return}
+  draftImages.forEach((item,index)=>{
+    const figure=document.createElement('figure');
+    const img=document.createElement('img');img.src=item.kind==='pending'?item.preview:publicImage(item.value);img.alt=`선택한 기록 사진 ${index+1}`;
+    const badge=document.createElement('small');badge.textContent=index===0?'대표':String(index+1);
+    const remove=document.createElement('button');remove.type='button';remove.className='remove-photo';remove.textContent='×';remove.setAttribute('aria-label',`${index+1}번 사진 제외`);
+    remove.addEventListener('click',()=>{
+      const [removed]=draftImages.splice(index,1);if(removed.kind==='pending')URL.revokeObjectURL(removed.preview);
+      if(removed.kind==='stored'&&removed.value===$('#imageUrlInput').value.trim()){$('#imageUrlInput').value='';$('#imageUrlInput').dataset.previous=''}
+      setPreview();
+    });
+    figure.append(img,badge,remove);photoPreview.append(figure);
+  });
 }
 
 function setValue(selector,value){$(selector).value=value??''}
@@ -187,7 +203,9 @@ function setValue(selector,value){$(selector).value=value??''}
 function openEditor(item=null){
   if(busy)return;
   selected=item?{...item}:null;
-  pendingImage=null;imageFile.value='';
+  releaseDraftImages();imageFile.value='';
+  const stored=[item?.image,...(Array.isArray(item?.gallery)?item.gallery:[])].filter(Boolean);
+  draftImages=[...new Set(stored)].map(value=>({kind:'stored',value}));
   editorMode.textContent=item?(item._origin==='personal'?'PERSONAL RECORD':'MARKET RECORD'):'NEW RECORD';
   editorTitle.textContent=item?'기록 수정':'새 기록';
   hideButton.hidden=!item;
@@ -195,8 +213,9 @@ function openEditor(item=null){
   setValue('#yearInput',item?.year);setValue('#sizeInput',item?.size);setValue('#statusInput',item?.status||'archive');
   setValue('#statusTextInput',item?.status_text);setValue('#priceInput',Number.isFinite(item?.price_krw)?item.price_krw:'');
   setValue('#publishedInput',item?.published_at);setValue('#sourceUrlInput',item?.source_url);setValue('#imageUrlInput',item?.image);
+  $('#imageUrlInput').dataset.previous=item?.image||'';
   setValue('#descriptionInput',item?.description);$('#showPriceInput').checked=Boolean(item?.show_price);
-  setPreview(publicImage(item?.image));saveMessage.textContent='';workspace.classList.add('editing');
+  setPreview();saveMessage.textContent='';workspace.classList.add('editing');
   renderList();
   if(matchMedia('(max-width:860px)').matches)scrollTo({top:0,behavior:'smooth'});
 }
@@ -218,7 +237,7 @@ function formRecord(){
     year:year?Number(year):null,
     size:$('#sizeInput').value.trim(),
     image:$('#imageUrlInput').value.trim(),
-    gallery:Array.isArray(selected?.gallery)?selected.gallery:[],
+    gallery:[],
     price_krw:price?Number(price):null,
     show_price:$('#showPriceInput').checked,
     status:$('#statusInput').value,
@@ -289,13 +308,15 @@ async function saveRecord(event){
     const ref=await api(`/repos/${OWNER}/${REPO}/git/ref/heads/${BRANCH}`);
     const latest=await latestData(ref.object.sha);
     const entries=[];
-    let imagePath=next.image;
-    if(pendingImage){
-      const bytes=await imageToJpeg(pendingImage);
-      imagePath=`assets/uploads/${new Date().toISOString().slice(0,10).replaceAll('-','')}-${next.id.toLowerCase().replace(/[^a-z0-9-]/g,'').slice(-36)||Date.now()}.jpg`;
-      entries.push({path:imagePath,content:bytesToBase64(bytes),encoding:'base64'});
+    const imagePaths=[];
+    for(let index=0;index<draftImages.length;index++){
+      const item=draftImages[index];
+      if(item.kind==='stored'){imagePaths.push(item.value);continue}
+      const bytes=await imageToJpeg(item.file);
+      const imagePath=`assets/uploads/${new Date().toISOString().slice(0,10).replaceAll('-','')}-${next.id.toLowerCase().replace(/[^a-z0-9-]/g,'').slice(-28)||Date.now()}-${index+1}.jpg`;
+      entries.push({path:imagePath,content:bytesToBase64(bytes),encoding:'base64'});imagePaths.push(imagePath);
     }
-    next.image=imagePath;
+    next.image=imagePaths[0]||'';next.gallery=imagePaths.slice(1);
     if(selected?._origin==='active'){
       const original=latest.active.find(item=>item.id===selected.id);
       if(!original)throw new Error('원본 매물을 찾지 못했습니다. 새로고침 후 다시 시도해 주세요.');
@@ -429,11 +450,15 @@ $('#backButton').addEventListener('click',closeEditor);
 searchInput.addEventListener('input',renderList);categoryFilter.addEventListener('change',renderList);
 form.addEventListener('submit',saveRecord);hideButton.addEventListener('click',hideRecord);
 imageFile.addEventListener('change',()=>{
-  const [file]=imageFile.files;pendingImage=file||null;
-  if(!file){setPreview(publicImage(selected?.image));return}
-  const url=URL.createObjectURL(file);setPreview(url);setTimeout(()=>URL.revokeObjectURL(url),30000);
+  for(const file of imageFile.files)draftImages.push({kind:'pending',file,preview:URL.createObjectURL(file)});
+  imageFile.value='';setPreview();
 });
-$('#imageUrlInput').addEventListener('change',event=>{if(!pendingImage)setPreview(publicImage(event.target.value.trim()))});
+$('#imageUrlInput').addEventListener('change',event=>{
+  const value=event.target.value.trim();const previous=event.target.dataset.previous||'';
+  if(previous){const index=draftImages.findIndex(item=>item.kind==='stored'&&item.value===previous);if(index>=0)draftImages.splice(index,1)}
+  if(value&&!draftImages.some(item=>item.kind==='stored'&&item.value===value))draftImages.unshift({kind:'stored',value});
+  event.target.dataset.previous=value;setPreview();
+});
 
 showLoginMode();
 if(sessionStorage.getItem(TOKEN_KEY))connect();
