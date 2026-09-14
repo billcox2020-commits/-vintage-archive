@@ -143,6 +143,7 @@ function setPreview(src){
 function setValue(selector,value){$(selector).value=value??''}
 
 function openEditor(item=null){
+  if(busy)return;
   selected=item?{...item}:null;
   pendingImage=null;imageFile.value='';
   editorMode.textContent=item?(item._origin==='personal'?'PERSONAL RECORD':'MARKET RECORD'):'NEW RECORD';
@@ -158,7 +159,7 @@ function openEditor(item=null){
   if(matchMedia('(max-width:860px)').matches)scrollTo({top:0,behavior:'smooth'});
 }
 
-function closeEditor(){workspace.classList.remove('editing');selected=null;renderList()}
+function closeEditor(){if(busy)return;workspace.classList.remove('editing');selected=null;renderList()}
 
 function formRecord(){
   const year=$('#yearInput').value.trim();
@@ -217,9 +218,7 @@ async function createBlob(content,encoding='utf-8'){
   return result.sha;
 }
 
-async function commitFiles(entries,message){
-  const ref=await api(`/repos/${OWNER}/${REPO}/git/ref/heads/${BRANCH}`);
-  const headSha=ref.object.sha;
+async function commitFiles(entries,message,headSha){
   const commit=await api(`/repos/${OWNER}/${REPO}/git/commits/${headSha}`);
   const treeEntries=[];
   for(const entry of entries){
@@ -264,7 +263,7 @@ async function saveRecord(event){
       latest.changes.hidden_ids=latest.changes.hidden_ids.filter(id=>id!==selected.id);
       entries.push(jsonEntry(PATHS.changes,latest.changes));
     }else{
-      const record=cleanRecord(next);
+      const record=cleanRecord({...selected,...next});
       const index=selected?latest.personal.findIndex(item=>item.id===selected.id):-1;
       if(selected&&index<0)throw new Error('원본 기록을 찾지 못했습니다. 새로고침 후 다시 시도해 주세요.');
       if(index>=0)latest.personal[index]=record;else latest.personal.unshift(record);
@@ -272,10 +271,10 @@ async function saveRecord(event){
       entries.push(jsonEntry(PATHS.personal,{items:latest.personal}));
       if(latest.changes.hidden_ids.length!==changes.hidden_ids.length)entries.push(jsonEntry(PATHS.changes,latest.changes));
     }
-    await commitFiles(entries,selected?`Update archive record: ${next.title}`:`Add archive record: ${next.title}`);
+    await commitFiles(entries,selected?`Update archive record: ${next.title}`:`Add archive record: ${next.title}`,ref.object.sha);
     showToast('저장 완료. 공개 사이트는 잠시 후 갱신됩니다.');
     await loadRecords();
-    const saved=records.find(item=>item.id===next.id);openEditor(saved||null);
+    const saved=records.find(item=>item.id===next.id);setBusy(false);openEditor(saved||null);
   }catch(error){saveMessage.textContent=humanError(error)}finally{setBusy(false)}
 }
 
@@ -288,8 +287,8 @@ async function hideRecord(){
     const latest=await latestData(ref.object.sha);
     if(!latest.changes.hidden_ids.includes(selected.id))latest.changes.hidden_ids.push(selected.id);
     delete latest.changes.overrides[selected.id];
-    await commitFiles([jsonEntry(PATHS.changes,latest.changes)],`Hide archive record: ${selected.title}`);
-    showToast('사이트에서 삭제했습니다.');await loadRecords();closeEditor();
+    await commitFiles([jsonEntry(PATHS.changes,latest.changes)],`Hide archive record: ${selected.title}`,ref.object.sha);
+    showToast('사이트에서 삭제했습니다.');await loadRecords();setBusy(false);closeEditor();
   }catch(error){saveMessage.textContent=humanError(error)}finally{setBusy(false)}
 }
 
