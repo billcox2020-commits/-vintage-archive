@@ -80,3 +80,5 @@ form{display:grid;grid-template-columns:minmax(220px,34%) 1fr;gap:34px;padding-t
 }
 @media(max-width:520px){.login-panel{width:100%;margin:0;border-width:0;padding:34px 20px;box-shadow:none}.wordmark{font-size:1.05rem}.top-actions .text-button:first-of-type{display:none}.search-row{grid-template-columns:1fr 105px}.record strong{font-size:.88rem}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+@media(max-width:860px){.savebar{flex-direction:column;gap:8px}.savebar p{display:block}.editor-panel{padding-bottom:170px}}
