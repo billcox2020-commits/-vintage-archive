@@ -391,6 +391,7 @@ async function connectWithToken(candidate){
     passwordButton.textContent=hasTokenVault()?'비밀번호 변경':'비밀번호 설정';
     connectionState.textContent=`${username} 연결됨`;connectionState.classList.add('on');
     if(matchMedia('(max-width:860px)').matches)closeEditor();else openEditor(null);
+    if(!hasTokenVault())setTimeout(openPasswordDialog,0);
   }catch(error){token='';sessionStorage.removeItem(TOKEN_KEY);loginError.textContent=humanError(error)}finally{connectButton.disabled=false;unlockButton.disabled=false;connectButton.textContent='관리 화면 연결'}
 }
 
