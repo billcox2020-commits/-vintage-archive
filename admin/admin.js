@@ -68,8 +68,8 @@ async function saveTokenVault(password){
   localStorage.setItem(VAULT_KEY,JSON.stringify({version:1,salt:bytesToBase64(salt),iv:bytesToBase64(iv),cipher:bytesToBase64(new Uint8Array(encrypted))}));
 }
 
-async function readTokenVault(password){
-  const vault=JSON.parse(localStorage.getItem(VAULT_KEY)||'null');
+async function readTokenVault(password,savedVault=null){
+  const vault=savedVault||JSON.parse(localStorage.getItem(VAULT_KEY)||'null');
   if(!vault||vault.version!==1)throw new Error('저장된 로그인을 찾지 못했습니다.');
   const salt=base64ToBytes(vault.salt);const iv=base64ToBytes(vault.iv);const key=await passwordKey(password,salt);
   const decrypted=await crypto.subtle.decrypt({name:'AES-GCM',iv},key,base64ToBytes(vault.cipher));
@@ -462,5 +462,46 @@ $('#imageUrlInput').addEventListener('change',event=>{
   event.target.dataset.previous=value;setPreview();
 });
 
+
+function downloadLoginBackup(){
+  const saved=localStorage.getItem(VAULT_KEY);
+  if(!saved){showToast('먼저 비밀번호를 저장해 주세요.');return}
+  const url=URL.createObjectURL(new Blob([saved],{type:'application/json'}));
+  const link=document.createElement('a');link.href=url;link.download='archive-login.json';link.click();
+  setTimeout(()=>URL.revokeObjectURL(url),60000);
+  showToast('로그인 파일을 파일 앱에 보관하세요. 비밀번호는 별도로 기억해 주세요.');
+}
+
+const backupButton=document.createElement('button');
+backupButton.type='button';backupButton.className='text-button wide';backupButton.textContent='홈 화면용 로그인 파일 저장';
+backupButton.addEventListener('click',downloadLoginBackup);
+passwordForm.append(backupButton);
+const backupHelp=document.createElement('p');
+backupHelp.textContent='사파리와 홈 화면은 로그인이 따로 저장될 수 있습니다. 비밀번호 저장 후 이 창을 다시 열어 로그인 파일을 보관하세요. 홈 화면에서는 파일을 불러오면 같은 비밀번호를 사용할 수 있습니다.';
+passwordForm.append(backupHelp);
+
+const restoreLabel=document.createElement('label');
+restoreLabel.className='file-button';restoreLabel.textContent='저장한 로그인 파일 불러오기';
+const restoreInput=document.createElement('input');restoreInput.type='file';restoreInput.accept='.json,application/json';
+restoreLabel.append(restoreInput);loginPanel.insertBefore(restoreLabel,loginError);
+const restoreHelp=document.createElement('p');
+restoreHelp.textContent='홈 화면에서 토큰을 다시 요구하면 기존 로그인 파일을 불러오세요. 새 토큰을 만들 필요 없습니다.';
+loginPanel.insertBefore(restoreHelp,loginError);
+restoreInput.addEventListener('change',async()=>{
+  const file=restoreInput.files[0];if(!file)return;
+  try{
+    if(file.size>16384)throw new Error('올바른 로그인 파일이 아닙니다.');
+    const vault=JSON.parse(await file.text());
+    if(vault.version!==1||typeof vault.salt!=='string'||typeof vault.iv!=='string'||typeof vault.cipher!=='string')throw new Error('올바른 로그인 파일이 아닙니다.');
+    const password=prompt('이 로그인 파일을 저장할 때 설정한 관리자 비밀번호를 입력하세요.');
+    if(password===null)return;
+    const candidate=await readTokenVault(password,vault);
+    localStorage.setItem(VAULT_KEY,JSON.stringify(vault));
+    if(!hasTokenVault())throw new Error('이 창에서 로그인 저장을 허용하지 않습니다.');
+    showLoginMode();
+    await connectWithToken(candidate);
+  }catch(error){loginError.textContent=error?.name==='OperationError'?'비밀번호가 맞지 않습니다.':String(error.message||error)}
+  finally{restoreInput.value=''}
+});
 showLoginMode();
 if(sessionStorage.getItem(TOKEN_KEY))connect();
