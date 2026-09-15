@@ -1,6 +1,6 @@
 {
   "project": "vintage-archive",
-  "updated": "2026-09-05",
+  "updated": "2026-09-16",
   "sources": [
     {
       "type": "naver_blog",
@@ -28,9 +28,9 @@
     },
     {
       "type": "fruitsfamily",
-      "name": "bnr34korea / @bnr34jeff",
-      "url": "https://fruitsfamily.com/seller/m91p/bnr34jeff",
-      "status": "indexed"
+      "name": "FruitsFamily account shared 2026-09-16",
+      "url": "https://fruitsfamilyapp.onelink.me/Agm2/xkr2wyo8",
+      "status": "source_corrected_pending_profile_resolution"
     },
     {
       "type": "grailed",
