@@ -1,0 +1,26 @@
+.information{display:block}
+.information-head{display:grid;grid-template-columns:1fr 1fr;gap:9vw;margin-bottom:42px}
+.information-stories{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:22px;border-top:1px solid var(--line);padding-top:28px}
+.info-story{grid-column:span 4;min-width:0;border-bottom:1px solid var(--line);padding-bottom:24px}
+.info-story.feature{grid-column:span 8}
+.info-story.compact{grid-column:span 3}
+.info-story-button{display:block;width:100%;padding:0;border:0;background:none;color:inherit;text-align:left}
+.info-story-image{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--panel);margin-bottom:14px}
+.info-story.feature .info-story-image{aspect-ratio:16/8}
+.info-story-meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:11px;letter-spacing:.8px;margin:0 0 8px}
+.info-story h3{font-size:clamp(18px,2vw,28px);font-weight:500;line-height:1.35;letter-spacing:-.5px;margin:0 0 8px}
+.info-story p{color:var(--muted);font-size:14px;line-height:1.65;margin:0}
+.info-story-button:hover h3{color:var(--accent)}
+.information-links{margin-top:58px;display:grid;grid-template-columns:1fr 1fr;gap:9vw}
+.information-links .eyebrow{margin-top:0}
+.info-article-head{margin:8px 0 24px}
+.info-article-head .card-meta{margin-top:0}
+.info-article-subtitle{color:var(--muted);font-size:16px}
+.info-body{font-size:15px;line-height:1.85}
+.info-body h3{font-size:21px;font-weight:500;margin:30px 0 10px}
+.info-body p{white-space:pre-line;margin:0 0 18px}
+.info-body blockquote{margin:24px 0;padding:12px 18px;border-left:2px solid var(--accent);color:var(--muted)}
+.info-body ul{padding-left:22px;margin:0 0 20px}
+.info-body li{margin:7px 0}
+@media(max-width:1000px){.information-head,.information-links{gap:6vw}.info-story{grid-column:span 6}.info-story.feature{grid-column:span 12}.info-story.compact{grid-column:span 4}}
+@media(max-width:680px){.information-head,.information-links{grid-template-columns:1fr;gap:28px}.information-stories{grid-template-columns:1fr;gap:28px}.info-story,.info-story.feature,.info-story.compact{grid-column:auto}.info-story-image,.info-story.feature .info-story-image{aspect-ratio:16/10}.information-links{margin-top:42px}}
