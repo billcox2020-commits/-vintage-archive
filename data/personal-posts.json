@@ -39,7 +39,11 @@
       "year": 2006,
       "size": "290",
       "image": "assets/items/af1-2006-snakeskin/main.svg",
-      "gallery": [],
+      "gallery": [
+        "assets/uploads/20260915-af1-2006-snake-290-2.jpg",
+        "assets/uploads/20260915-af1-2006-snake-290-3.jpg",
+        "assets/uploads/20260915-af1-2006-snake-290-4.jpg"
+      ],
       "price_krw": null,
       "show_price": false,
       "status": "for_sale",
