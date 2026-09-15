@@ -6,7 +6,9 @@
 <meta name="description" content="ALL COLLECTOR. 빈티지 신발과 의류, 모자와 가방을 모으고 기록하는 개인 아카이브.">
 <title>ALL COLLECTOR ARCHIVE</title>
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/information.css">
 <script src="assets/site.js" defer></script>
+<script src="assets/information.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#collection">컬렉션으로 바로가기</a>
@@ -31,11 +33,13 @@
 <noscript><p>컬렉션을 보려면 자바스크립트를 켜 주세요. 아래 원문 링크에서도 기록을 볼 수 있습니다.</p></noscript>
 </section>
 <section class="section information" id="information">
-<div><p class="eyebrow">03 / INFORMATION</p><h2>기록이 이어지는 곳</h2><p class="info-copy">더 많은 사진과 이야기,<br>그리고 각 물건의 원래 기록.</p></div>
-<div class="link-list"><a href="https://m.blog.naver.com/bnr34_jeff" target="_blank" rel="noopener noreferrer"><span><strong>BLOG</strong><small>글과 사진으로 남긴 기록</small></span><span aria-hidden="true">↗</span></a><a href="https://www.instagram.com/bnr34_korea/" target="_blank" rel="noopener noreferrer"><span><strong>INSTAGRAM</strong><small>컬렉션 사진과 영상</small></span><span aria-hidden="true">↗</span></a><a href="https://fruitsfamily.com/seller/m91p/bnr34jeff" target="_blank" rel="noopener noreferrer"><span><strong>FRUITSFAMILY</strong><small>아이템별 사진과 상세 기록</small></span><span aria-hidden="true">↗</span></a><a href="https://www.heddels.com/2019/03/north-face-summits-sidewalks/" target="_blank" rel="noopener noreferrer"><span><strong>READING / THE NORTH FACE</strong><small>Heddels · From Summits to Sidewalks</small></span><span aria-hidden="true">↗</span></a></div>
+<div class="information-head"><div><p class="eyebrow">03 / INFORMATION</p><h2>물건 뒤에 남은 이야기</h2></div><p class="info-copy">Air Force 1, Nike, The North Face.<br>연식과 디테일, 역사와 자료를 직접 정리하는 아카이브 노트.</p></div>
+<div id="informationStories" class="information-stories" aria-live="polite" hidden></div>
+<div class="information-links"><div><p class="eyebrow">LINKS / SOURCES</p><h2>기록이 이어지는 곳</h2></div><div class="link-list"><a href="https://m.blog.naver.com/bnr34_jeff" target="_blank" rel="noopener noreferrer"><span><strong>BLOG</strong><small>글과 사진으로 남긴 기록</small></span><span aria-hidden="true">↗</span></a><a href="https://www.instagram.com/bnr34_korea/" target="_blank" rel="noopener noreferrer"><span><strong>INSTAGRAM</strong><small>컬렉션 사진과 영상</small></span><span aria-hidden="true">↗</span></a><a href="https://fruitsfamily.com/seller/m91p/bnr34jeff" target="_blank" rel="noopener noreferrer"><span><strong>FRUITSFAMILY</strong><small>아이템별 사진과 상세 기록</small></span><span aria-hidden="true">↗</span></a><a href="https://www.heddels.com/2019/03/north-face-summits-sidewalks/" target="_blank" rel="noopener noreferrer"><span><strong>READING / THE NORTH FACE</strong><small>Heddels · From Summits to Sidewalks</small></span><span aria-hidden="true">↗</span></a></div></div>
 </section>
 </main>
 <footer><span>ALL COLLECTOR ARCHIVE</span><span class="footer-links"><a href="admin/">ADMIN</a><a href="#home">처음으로 ↑</a></span></footer>
 <dialog id="detail" aria-labelledby="detailTitle"><button class="close" type="button" aria-label="상세 기록 닫기">닫기 ×</button><div id="detailContent"></div></dialog>
+<dialog id="infoDetail" aria-labelledby="infoDetailTitle"><button class="close" type="button" aria-label="INFORMATION 글 닫기">닫기 ×</button><div id="infoDetailContent"></div></dialog>
 </body>
 </html>
