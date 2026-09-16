@@ -1,3 +1,19 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "INFO-MU4INV18",
+      "section": "nothface",
+      "layout": "feature",
+      "title": "00s north face summit",
+      "subtitle": "the north face collec",
+      "visible": true,
+      "image": "assets/uploads/info-20260916-info-mu4inv18-1.jpg",
+      "gallery": [
+        "assets/uploads/info-20260916-info-mu4inv18-2.jpg",
+        "assets/uploads/info-20260916-info-mu4inv18-3.jpg",
+        "assets/uploads/info-20260916-info-mu4inv18-4.jpg",
+        "assets/uploads/info-20260916-info-mu4inv18-5.jpg"
+      ]
+    }
+  ]
 }
