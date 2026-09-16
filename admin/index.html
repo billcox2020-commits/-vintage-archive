@@ -17,6 +17,7 @@
     <span id="connectionState" class="connection">연결 안 됨</span>
     <button id="passwordButton" class="text-button password-action" type="button" hidden>비밀번호 설정</button>
     <button id="disconnectButton" class="text-button" type="button" hidden>연결 해제</button>
+    <a class="text-button" href="cover.html">COVER</a>
     <a class="text-button" href="information.html">INFORMATION</a>
     <a class="text-button" href="../" target="_blank" rel="noopener">사이트 보기 ↗</a>
   </div>
@@ -42,84 +43,19 @@
     </div>
     <details>
       <summary>처음 한 번만: 토큰 만드는 법</summary>
-      <ol>
-        <li>GitHub에서 <strong>Fine-grained personal access token</strong>을 만듭니다.</li>
-        <li>Repository access는 <strong>Only select repositories</strong>에서 <code>-vintage-archive</code>만 선택합니다.</li>
-        <li>Permissions → Repository permissions → Contents를 <strong>Read and write</strong>로 지정합니다.</li>
-        <li>생성된 토큰을 위 칸에 붙여 넣고 연결합니다.</li>
-      </ol>
+      <ol><li>GitHub에서 <strong>Fine-grained personal access token</strong>을 만듭니다.</li><li>Repository access는 <strong>Only select repositories</strong>에서 <code>-vintage-archive</code>만 선택합니다.</li><li>Permissions → Repository permissions → Contents를 <strong>Read and write</strong>로 지정합니다.</li><li>생성된 토큰을 위 칸에 붙여 넣고 연결합니다.</li></ol>
       <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub 토큰 만들기 ↗</a>
-    </details>
-    <p id="loginError" class="error" role="alert"></p>
+    </details><p id="loginError" class="error" role="alert"></p>
   </section>
 
   <section id="workspace" class="workspace" hidden>
-    <aside class="records-panel">
-      <div class="records-head">
-        <div><p class="kicker">ALL RECORDS</p><h1>기록 관리</h1></div>
-        <button id="newButton" class="primary" type="button">＋ 새 기록</button>
-      </div>
-      <div class="search-row">
-        <label class="search"><span class="sr-only">기록 검색</span><input id="searchInput" type="search" placeholder="제목·브랜드·연도 검색"></label>
-        <select id="categoryFilter" aria-label="카테고리 필터">
-          <option value="all">ALL</option><option value="shoes">SHOES</option><option value="outer">OUTER</option><option value="top">TOP</option><option value="bottom">BOTTOM</option><option value="etc">ETC</option>
-        </select>
-      </div>
-      <p id="recordCount" class="count"></p>
-      <div id="recordList" class="record-list" aria-live="polite"></div>
-    </aside>
-
-    <section id="editorPanel" class="editor-panel" aria-labelledby="editorTitle">
-      <div class="editor-head">
-        <button id="backButton" class="back" type="button">← 목록</button>
-        <div><p id="editorMode" class="kicker">NEW RECORD</p><h2 id="editorTitle">새 기록</h2></div>
-        <button id="hideButton" class="danger" type="button" hidden>삭제</button>
-      </div>
-      <form id="recordForm">
-        <div class="photo-field">
-          <div id="photoPreview" class="photo-preview"><span>사진 미리보기</span></div>
-          <label class="file-button">사진 여러 장 선택<input id="imageFile" type="file" accept="image/*" multiple></label>
-          <p>여러 장을 한 번에 선택할 수 있습니다. 첫 번째 사진이 대표 사진으로 표시되며, ×를 눌러 제외할 수 있습니다.</p>
-        </div>
-
-        <div class="form-fields">
-          <label class="full">제목 <strong>*</strong><input id="titleInput" name="title" required maxlength="180"></label>
-          <label>브랜드<input id="brandInput" name="brand" maxlength="80" placeholder="NIKE"></label>
-          <label>카테고리<select id="categoryInput" name="category"><option value="shoes">SHOES</option><option value="outer">OUTER</option><option value="top">TOP</option><option value="bottom">BOTTOM</option><option value="etc">ETC</option></select></label>
-          <label>연도<input id="yearInput" name="year" inputmode="numeric" pattern="[0-9]*" placeholder="1994"></label>
-          <label>사이즈<input id="sizeInput" name="size" maxlength="40" placeholder="265 / XL"></label>
-          <label>상태<select id="statusInput" name="status"><option value="archive">ARCHIVE</option><option value="for_sale">판매 중</option><option value="reserved">예약 중</option><option value="sold">SOLD</option></select></label>
-          <label>표시 문구<input id="statusTextInput" name="status_text" maxlength="60" placeholder="DEAD STOCK / NDS"></label>
-          <label>가격(원)<input id="priceInput" name="price_krw" inputmode="numeric" pattern="[0-9]*" placeholder="400000"></label>
-          <label>게시일<input id="publishedInput" name="published_at" type="date"></label>
-          <label class="full">원문 링크<input id="sourceUrlInput" name="source_url" type="url" inputmode="url" autocapitalize="none" placeholder="https://…"></label>
-          <label class="full">사진 주소<input id="imageUrlInput" name="image" inputmode="url" autocapitalize="none" placeholder="사진을 새로 올리지 않을 때만 사용"></label>
-          <label class="full">설명<textarea id="descriptionInput" name="description" rows="7" maxlength="4000"></textarea></label>
-          <label class="check full"><input id="showPriceInput" name="show_price" type="checkbox"><span>가격 표시 허용</span></label>
-        </div>
-        <div class="savebar">
-          <p id="saveMessage" role="status"></p>
-          <button id="saveButton" class="primary" type="submit">저장하고 사이트에 반영</button>
-        </div>
-      </form>
+    <aside class="records-panel"><div class="records-head"><div><p class="kicker">ALL RECORDS</p><h1>기록 관리</h1></div><button id="newButton" class="primary" type="button">＋ 새 기록</button></div><div class="search-row"><label class="search"><span class="sr-only">기록 검색</span><input id="searchInput" type="search" placeholder="제목·브랜드·연도 검색"></label><select id="categoryFilter" aria-label="카테고리 필터"><option value="all">ALL</option><option value="shoes">SHOES</option><option value="outer">OUTER</option><option value="top">TOP</option><option value="bottom">BOTTOM</option><option value="etc">ETC</option></select></div><p id="recordCount" class="count"></p><div id="recordList" class="record-list" aria-live="polite"></div></aside>
+    <section id="editorPanel" class="editor-panel" aria-labelledby="editorTitle"><div class="editor-head"><button id="backButton" class="back" type="button">← 목록</button><div><p id="editorMode" class="kicker">NEW RECORD</p><h2 id="editorTitle">새 기록</h2></div><button id="hideButton" class="danger" type="button" hidden>삭제</button></div>
+      <form id="recordForm"><div class="photo-field"><div id="photoPreview" class="photo-preview"><span>사진 미리보기</span></div><label class="file-button">사진 여러 장 선택<input id="imageFile" type="file" accept="image/*" multiple></label><p>여러 장을 한 번에 선택할 수 있습니다. 첫 번째 사진이 대표 사진으로 표시되며, ×를 눌러 제외할 수 있습니다.</p></div>
+        <div class="form-fields"><label class="full">제목 <strong>*</strong><input id="titleInput" name="title" required maxlength="180"></label><label>브랜드<input id="brandInput" name="brand" maxlength="80" placeholder="NIKE"></label><label>카테고리<select id="categoryInput" name="category"><option value="shoes">SHOES</option><option value="outer">OUTER</option><option value="top">TOP</option><option value="bottom">BOTTOM</option><option value="etc">ETC</option></select></label><label>연도<input id="yearInput" name="year" inputmode="numeric" pattern="[0-9]*" placeholder="1994"></label><label>사이즈<input id="sizeInput" name="size" maxlength="40" placeholder="265 / XL"></label><label>상태<select id="statusInput" name="status"><option value="archive">ARCHIVE</option><option value="for_sale">판매 중</option><option value="reserved">예약 중</option><option value="sold">SOLD</option></select></label><label>표시 문구<input id="statusTextInput" name="status_text" maxlength="60" placeholder="DEAD STOCK / NDS"></label><label>가격(원)<input id="priceInput" name="price_krw" inputmode="numeric" pattern="[0-9]*" placeholder="400000"></label><label>게시일<input id="publishedInput" name="published_at" type="date"></label><label class="full">원문 링크<input id="sourceUrlInput" name="source_url" type="url" inputmode="url" autocapitalize="none" placeholder="https://…"></label><label class="full">사진 주소<input id="imageUrlInput" name="image" inputmode="url" autocapitalize="none" placeholder="사진을 새로 올리지 않을 때만 사용"></label><label class="full">설명<textarea id="descriptionInput" name="description" rows="7" maxlength="4000"></textarea></label><label class="check full"><input id="showPriceInput" name="show_price" type="checkbox"><span>가격 표시 허용</span></label></div><div class="savebar"><p id="saveMessage" role="status"></p><button id="saveButton" class="primary" type="submit">저장하고 사이트에 반영</button></div></form>
     </section>
   </section>
 </main>
-
-<dialog id="passwordDialog" class="password-dialog">
-  <form id="passwordForm" method="dialog">
-    <button id="closePasswordDialog" class="dialog-close" type="button" aria-label="닫기">×</button>
-    <p class="kicker">THIS DEVICE ONLY</p>
-    <h2>관리자 비밀번호 설정</h2>
-    <p>현재 GitHub 연결 정보를 이 기기에 암호화해 저장합니다. 다음부터 이 비밀번호로 관리자 화면을 열 수 있습니다.</p>
-    <label>새 비밀번호<input id="newPassword" type="password" autocomplete="new-password" minlength="4" required></label>
-    <label>비밀번호 확인<input id="confirmPassword" type="password" autocomplete="new-password" minlength="4" required></label>
-    <p id="passwordError" class="error" role="alert"></p>
-    <button id="savePasswordButton" class="primary wide" type="submit">비밀번호 저장</button>
-    <button id="removeSavedLoginButton" class="text-button remove-login" type="button" hidden>이 기기의 저장된 로그인 삭제</button>
-  </form>
-</dialog>
-
+<dialog id="passwordDialog" class="password-dialog"><form id="passwordForm" method="dialog"><button id="closePasswordDialog" class="dialog-close" type="button" aria-label="닫기">×</button><p class="kicker">THIS DEVICE ONLY</p><h2>관리자 비밀번호 설정</h2><p>현재 GitHub 연결 정보를 이 기기에 암호화해 저장합니다. 다음부터 이 비밀번호로 관리자 화면을 열 수 있습니다.</p><label>새 비밀번호<input id="newPassword" type="password" autocomplete="new-password" minlength="4" required></label><label>비밀번호 확인<input id="confirmPassword" type="password" autocomplete="new-password" minlength="4" required></label><p id="passwordError" class="error" role="alert"></p><button id="savePasswordButton" class="primary wide" type="submit">비밀번호 저장</button><button id="removeSavedLoginButton" class="text-button remove-login" type="button" hidden>이 기기의 저장된 로그인 삭제</button></form></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-</body>
-</html>
+</body></html>
