@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' data: blob: https:; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+<title>COVER ADMIN · ALL COLLECTOR</title>
+<link rel="stylesheet" href="admin.css">
+<script src="cover.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="wordmark" href="../">ALL COLLECTOR <span>COVER ADMIN</span></a>
+  <div class="top-actions">
+    <span id="connectionState" class="connection">연결 안 됨</span>
+    <a class="text-button" href="./">COLLECTION 관리</a>
+    <a class="text-button" href="information.html">INFORMATION</a>
+    <a class="text-button" href="../" target="_blank" rel="noopener">사이트 보기 ↗</a>
+  </div>
+</header>
+<main>
+  <section id="loginPanel" class="login-panel">
+    <p class="kicker">PRIVATE EDITOR</p>
+    <h1>표지 관리</h1>
+    <p>홈페이지 메인 표지 사진만 교체합니다. 기존 관리자 비밀번호가 저장돼 있으면 같은 비밀번호로 열 수 있습니다.</p>
+    <div id="passwordLogin" hidden>
+      <label class="token-field">관리자 비밀번호<input id="unlockPassword" type="password" autocomplete="current-password" placeholder="기존 관리자 비밀번호"></label>
+      <button id="unlockButton" class="primary wide" type="button">비밀번호로 열기</button>
+      <button id="useTokenButton" class="text-button login-switch" type="button">토큰으로 연결</button>
+    </div>
+    <div id="tokenLogin">
+      <label class="token-field">GitHub fine-grained token<input id="tokenInput" type="password" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="github_pat_…"></label>
+      <button id="connectButton" class="primary wide" type="button">관리 화면 연결</button>
+    </div>
+    <p id="loginError" class="error" role="alert"></p>
+  </section>
+
+  <section id="workspace" class="login-panel" hidden>
+    <p class="kicker">MAIN COVER</p>
+    <h1>홈페이지 표지</h1>
+    <div class="photo-field">
+      <div id="coverPreview" class="photo-preview"><img id="coverImage" src="../assets/archive-room-cover.jpg" alt="현재 홈페이지 표지"></div>
+      <label class="file-button">새 표지 사진 선택<input id="coverFile" type="file" accept="image/*"></label>
+      <p>사진을 고른 뒤 아래 저장 버튼을 눌러야 홈페이지에 반영됩니다. 컬렉션·상품·INFORMATION 데이터는 건드리지 않습니다.</p>
+    </div>
+    <div class="savebar">
+      <p id="saveMessage" role="status"></p>
+      <button id="saveButton" class="primary" type="button" disabled>이 사진을 표지로 저장</button>
+    </div>
+  </section>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
